@@ -1,6 +1,12 @@
 
 # Comparing Machine Learning algorithms for assessing individual tree mortality: code and data
 
+
+
+:open_file_folder: Repository DOI: [![DOI](https://zenodo.org/badge/762423409.svg)](https://zenodo.org/doi/10.5281/zenodo.10996555)
+
+
+
 <!--
 DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10216009.svg)](https://doi.org/10.5281/zenodo.10216009)
 

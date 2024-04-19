@@ -21,6 +21,6 @@ authors:
   orcid: "https://orcid.org/0000-0002-4958-1868"
 title: "Comparing Machine Learning algorithms for assessing individual tree mortality: code and data"
 version: 1.0.0
-doi: 
+doi: https://zenodo.org/doi/10.5281/zenodo.10996555
 date-released: 2024-04-19
 url: "https://github.com/aitorvv/ML_individual_tree_mortality"
