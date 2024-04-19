@@ -1,0 +1,7 @@
+json
+pandas
+numpy
+tensorflow
+keras
+sklearn
+

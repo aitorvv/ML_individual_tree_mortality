@@ -1,0 +1,26 @@
+cff-version: 1.0.0
+message: "If you use this resources, please cite it as below."
+authors:
+- family-names: "Vázquez-Veloso"
+  given-names: "Aitor"
+  orcid: "https://orcid.org/0000-0003-0227-506X"
+- family-names: "Toraño Caicoya"
+  given-names: "Astor"
+  orcid: "https://orcid.org/0000-0002-9658-8990"
+- family-names: "Bravo"
+  given-names: "Felipe"
+  orcid: "https://orcid.org/0000-0001-7348-6695"
+- family-names: "Biber"
+  given-names: "Peter"
+  orcid: "https://orcid.org/0000-0002-9700-8708"
+- family-names: "Uhl"
+  given-names: "Enno"
+  orcid: "https://orcid.org/0000-0002-7847-923X"
+- family-names: "Pretzsch"
+  given-names: "Hans"
+  orcid: "https://orcid.org/0000-0002-4958-1868"
+title: "Comparing Machine Learning algorithms for assessing individual tree mortality: code and data"
+version: 1.0.0
+doi: 
+date-released: 2024-04-19
+url: "https://github.com/aitorvv/ML_individual_tree_mortality"

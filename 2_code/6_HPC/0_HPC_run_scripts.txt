@@ -1,0 +1,127 @@
+### 1. Basics
+
+# Registration
+ssh -p 24842 aitorvazquez@157.88.224.246
+
+# change directory
+cd PhD/Vitality/3_final/scripts/
+
+
+
+### 2. Analysis with different df size
+
+# 2.1 LR and ML analysis
+
+# organized code (to easily visualize it)
+nohup Rscript 6.0_run_analysis_HPC_DbVe.r > ../terminal_info/6.0_run_analysis_HPC_DbVe.txt & 
+nohup Rscript 6.0_run_analysis_HPC_DbVh.r > ../terminal_info/6.0_run_analysis_HPC_DbVh.txt &
+nohup Rscript 6.0_run_analysis_HPC_DbVm.r > ../terminal_info/6.0_run_analysis_HPC_DbVm.txt &
+nohup Rscript 6.0_run_analysis_HPC_DmVe.r > ../terminal_info/6.0_run_analysis_HPC_DmVe.txt &
+nohup Rscript 6.0_run_analysis_HPC_DmVh.r > ../terminal_info/6.0_run_analysis_HPC_DmVh.txt &
+nohup Rscript 6.0_run_analysis_HPC_DmVm.r > ../terminal_info/6.0_run_analysis_HPC_DmVm.txt &
+nohup Rscript 6.0_run_analysis_HPC_DsVh.r > ../terminal_info/6.0_run_analysis_HPC_DsVh.txt &
+nohup Rscript 6.0_run_analysis_HPC_DsVe.r > ../terminal_info/6.0_run_analysis_HPC_DsVe.txt &
+nohup Rscript 6.0_run_analysis_HPC_DsVm.r > ../terminal_info/6.0_run_analysis_HPC_DsVm.txt & exit
+
+# run code in 1 line
+nohup Rscript 6.0_run_analysis_HPC_DbVe.r > ../terminal_info/6.0_run_analysis_HPC_DbVe.txt & nohup Rscript 6.0_run_analysis_HPC_DbVh.r > ../terminal_info/6.0_run_analysis_HPC_DbVh.txt & nohup Rscript 6.0_run_analysis_HPC_DbVm.r > ../terminal_info/6.0_run_analysis_HPC_DbVm.txt & nohup Rscript 6.0_run_analysis_HPC_DmVe.r > ../terminal_info/6.0_run_analysis_HPC_DmVe.txt & nohup Rscript 6.0_run_analysis_HPC_DmVh.r > ../terminal_info/6.0_run_analysis_HPC_DmVh.txt & nohup Rscript 6.0_run_analysis_HPC_DmVm.r > ../terminal_info/6.0_run_analysis_HPC_DmVm.txt & nohup Rscript 6.0_run_analysis_HPC_DsVh.r > ../terminal_info/6.0_run_analysis_HPC_DsVh.txt & nohup Rscript 6.0_run_analysis_HPC_DsVe.r > ../terminal_info/6.0_run_analysis_HPC_DsVe.txt & nohup Rscript 6.0_run_analysis_HPC_DsVm.r > ../terminal_info/6.0_run_analysis_HPC_DsVm.txt & exit
+
+nohup Rscript 6.0_run_analysis_HPC_DbVx.r > ../terminal_info/6.0_run_analysis_HPC_DbVx.txt & nohup Rscript 6.0_run_analysis_HPC_DmVx.r > ../terminal_info/6.0_run_analysis_HPC_DmVx.txt & nohup Rscript 6.0_run_analysis_HPC_DsVx.r > ../terminal_info/6.0_run_analysis_HPC_DsVx.txt & exit
+
+nohup Rscript 6.0_run_analysis_HPC_DmrVe.r > ../terminal_info/6.0_run_analysis_HPC_DmrVe.txt & nohup Rscript 6.0_run_analysis_HPC_DmrVh.r > ../terminal_info/6.0_run_analysis_HPC_DmrVh.txt & nohup Rscript 6.0_run_analysis_HPC_DmrVm.r > ../terminal_info/6.0_run_analysis_HPC_DmrVm.txt & nohup Rscript 6.0_run_analysis_HPC_DsrVh.r > ../terminal_info/6.0_run_analysis_HPC_DsrVh.txt & nohup Rscript 6.0_run_analysis_HPC_DsrVe.r > ../terminal_info/6.0_run_analysis_HPC_DsrVe.txt & nohup Rscript 6.0_run_analysis_HPC_DsrVm.r > ../terminal_info/6.0_run_analysis_HPC_DsrVm.txt & nohup Rscript 6.0_run_analysis_HPC_DmrVx.r > ../terminal_info/6.0_run_analysis_HPC_DmrVx.txt & nohup Rscript 6.0_run_analysis_HPC_DsrVx.r > ../terminal_info/6.0_run_analysis_HPC_DsrVx.txt & exit
+
+
+# 2.2. ANN datasets preparation
+
+# run code in 1 line
+nohup Rscript 6.7.1_ANN_datasets_HPC_DbVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DbVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DbVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DbVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DbVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DbVm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmVm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsVm.txt & exit
+
+nohup Rscript 6.7.1_ANN_datasets_HPC_DbVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DbVx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmVx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsVx.txt & exit
+
+nohup Rscript 6.7.1_ANN_datasets_HPC_DmrVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmrVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmrVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmrVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DmrVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmrVm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsrVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsrVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsrVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsrVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsrVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsrVm.txt & Rscript 6.7.1_ANN_datasets_HPC_DmrVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DmrVx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_DsrVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_DsrVx.txt & exit
+
+
+# 2.3. Activate Python Virtual Environment
+
+# change directory
+cd /home/aitorvazquez/PhD/Vitality
+
+# activate venv (already created)
+source venv/bin/activate
+
+# return to scripts directory
+cd /home/aitorvazquez/PhD/Vitality/3_final/scripts
+
+# run code in 1 line
+nohup python3 6.7.2_ANN_analysis_HPC_DbVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DbVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_DbVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DbVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_DbVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DbVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsVm.txt & exit
+
+nohup python3 6.7.2_ANN_analysis_HPC_DbVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DbVx.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmVx.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsVx.txt & exit
+
+nohup python3 6.7.2_ANN_analysis_HPC_DmrVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmrVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmrVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmrVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmrVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmrVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsrVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsrVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsrVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsrVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsrVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsrVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_DmrVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DmrVx.txt & nohup python3 6.7.2_ANN_analysis_HPC_DsrVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_DsrVx.txt & exit
+
+
+### 3. Analysis with different thinning grades
+
+# 3.1 LR and ML analysis
+
+# run code in 1 line
+nohup Rscript 6.0_run_analysis_HPC_TcVe.r > ../terminal_info/6.0_run_analysis_HPC_TcVe.txt & nohup Rscript 6.0_run_analysis_HPC_TcVh.r > ../terminal_info/6.0_run_analysis_HPC_TcVh.txt & nohup Rscript 6.0_run_analysis_HPC_TcVm.r > ../terminal_info/6.0_run_analysis_HPC_TcVm.txt & nohup Rscript 6.0_run_analysis_HPC_TaVe.r > ../terminal_info/6.0_run_analysis_HPC_TaVe.txt & nohup Rscript 6.0_run_analysis_HPC_TaVh.r > ../terminal_info/6.0_run_analysis_HPC_TaVh.txt & nohup Rscript 6.0_run_analysis_HPC_TaVm.r > ../terminal_info/6.0_run_analysis_HPC_TaVm.txt & nohup Rscript 6.0_run_analysis_HPC_TbVh.r > ../terminal_info/6.0_run_analysis_HPC_TbVh.txt & nohup Rscript 6.0_run_analysis_HPC_TbVe.r > ../terminal_info/6.0_run_analysis_HPC_TbVe.txt & nohup Rscript 6.0_run_analysis_HPC_TbVm.r > ../terminal_info/6.0_run_analysis_HPC_TbVm.txt & exit
+
+nohup Rscript 6.0_run_analysis_HPC_TcVx.r > ../terminal_info/6.0_run_analysis_HPC_TcVx.txt & nohup Rscript 6.0_run_analysis_HPC_TaVx.r > ../terminal_info/6.0_run_analysis_HPC_TaVx.txt & nohup Rscript 6.0_run_analysis_HPC_TbVx.r > ../terminal_info/6.0_run_analysis_HPC_TbVx.txt & exit
+
+
+# 3.2. ANN datasets preparation
+
+# run code in 1 line
+nohup Rscript 6.7.1_ANN_datasets_HPC_TcVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TcVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TcVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TcVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TcVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TcVm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TaVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TaVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TaVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TaVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TaVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TaVm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TbVh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TbVh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TbVe.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TbVe.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TbVm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TbVm.txt & exit
+
+nohup Rscript 6.7.1_ANN_datasets_HPC_TcVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TcVx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TaVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TaVx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_TbVx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_TbVx.txt & exit
+
+
+# 3.3. Activate Python Virtual Environment
+
+# change directory
+cd /home/aitorvazquez/PhD/Vitality
+
+# activate venv (already created)
+source venv/bin/activate
+
+# return to scripts directory
+cd /home/aitorvazquez/PhD/Vitality/3_final/scripts
+
+# run code in 1 line
+nohup python3 6.7.2_ANN_analysis_HPC_TcVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TcVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_TcVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TcVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_TcVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TcVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_TaVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TaVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_TaVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TaVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_TaVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TaVm.txt & nohup python3 6.7.2_ANN_analysis_HPC_TbVh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TbVh.txt & nohup python3 6.7.2_ANN_analysis_HPC_TbVe.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TbVe.txt & nohup python3 6.7.2_ANN_analysis_HPC_TbVm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TbVm.txt & exit
+
+nohup python3 6.7.2_ANN_analysis_HPC_TcVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TcVx.txt & nohup python3 6.7.2_ANN_analysis_HPC_TaVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TaVx.txt & nohup python3 6.7.2_ANN_analysis_HPC_TbVx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_TbVx.txt & exit
+
+
+
+### 4. Analysis with different record periods
+
+# 4.1 LR and ML analysis
+
+# run code in 1 line
+nohup Rscript 6.0_run_analysis_HPC_L3to5Ve.r > ../terminal_info/6.0_run_analysis_HPC_L3to5Ve.txt & nohup Rscript 6.0_run_analysis_HPC_L3to5Vm.r > ../terminal_info/6.0_run_analysis_HPC_L3to5Vm.txt & nohup Rscript 6.0_run_analysis_HPC_L3to5Vh.r > ../terminal_info/6.0_run_analysis_HPC_L3to5Vh.txt & nohup Rscript 6.0_run_analysis_HPC_L3to5Vx.r > ../terminal_info/6.0_run_analysis_HPC_L3to5Vx.txt & nohup Rscript 6.0_run_analysis_HPC_L5to6Ve.r > ../terminal_info/6.0_run_analysis_HPC_L5to6Ve.txt & nohup Rscript 6.0_run_analysis_HPC_L5to6Vm.r > ../terminal_info/6.0_run_analysis_HPC_L5to6Vm.txt & nohup Rscript 6.0_run_analysis_HPC_L5to6Vh.r > ../terminal_info/6.0_run_analysis_HPC_L5to6Vh.txt & nohup Rscript 6.0_run_analysis_HPC_L5to6Vx.r > ../terminal_info/6.0_run_analysis_HPC_L5to6Vx.txt & nohup Rscript 6.0_run_analysis_HPC_L6to7Ve.r > ../terminal_info/6.0_run_analysis_HPC_L6to7Ve.txt & nohup Rscript 6.0_run_analysis_HPC_L6to7Vm.r > ../terminal_info/6.0_run_analysis_HPC_L6to7Vm.txt & nohup Rscript 6.0_run_analysis_HPC_L6to7Vh.r > ../terminal_info/6.0_run_analysis_HPC_L6to7Vh.txt & nohup Rscript 6.0_run_analysis_HPC_L6to7Vx.r > ../terminal_info/6.0_run_analysis_HPC_L6to7Vx.txt & nohup Rscript 6.0_run_analysis_HPC_L7to9Ve.r > ../terminal_info/6.0_run_analysis_HPC_L7to9Ve.txt & nohup Rscript 6.0_run_analysis_HPC_L7to9Vm.r > ../terminal_info/6.0_run_analysis_HPC_L7to9Vm.txt & nohup Rscript 6.0_run_analysis_HPC_L7to9Vh.r > ../terminal_info/6.0_run_analysis_HPC_L7to9Vh.txt & nohup Rscript 6.0_run_analysis_HPC_L7to9Vx.r > ../terminal_info/6.0_run_analysis_HPC_L7to9Vx.txt & exit
+
+
+# 4.2. ANN datasets preparation
+
+# run code in 1 line
+nohup Rscript 6.7.1_ANN_datasets_HPC_L3to5Ve.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L3to5Ve.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L3to5Vm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L3to5Vm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L3to5Vh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L3to5Vh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L3to5Vx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L3to5Vx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L5to6Ve.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L5to6Ve.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L5to6Vm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L5to6Vm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L5to6Vh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L5to6Vh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L5to6Vx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L5to6Vx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L6to7Ve.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L6to7Ve.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L6to7Vm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L6to7Vm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L6to7Vh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L6to7Vh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L6to7Vx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L6to7Vx.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L7to9Ve.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L7to9Ve.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L7to9Vm.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L7to9Vm.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L7to9Vh.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L7to9Vh.txt & nohup Rscript 6.7.1_ANN_datasets_HPC_L7to9Vx.r > ../terminal_info/6.7.1_ANN_datasets_HPC_L7to9Vx.txt & exit
+
+
+# 4.3. Activate Python Virtual Environment
+
+# change directory
+cd /home/aitorvazquez/PhD/Vitality
+
+# activate venv (already created)
+source venv/bin/activate
+
+# return to scripts directory
+cd /home/aitorvazquez/PhD/Vitality/3_final/scripts
+
+# run code in 1 line
+nohup python3 6.7.2_ANN_analysis_HPC_L3to5Ve.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L3to5Ve.txt & nohup python3 6.7.2_ANN_analysis_HPC_L3to5Vm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L3to5Vm.txt & nohup python3 6.7.2_ANN_analysis_HPC_L3to5Vh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L3to5Vh.txt & nohup python3 6.7.2_ANN_analysis_HPC_L3to5Vx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L3to5Vx.txt & nohup python3 6.7.2_ANN_analysis_HPC_L5to6Ve.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L5to6Ve.txt & nohup python3 6.7.2_ANN_analysis_HPC_L5to6Vm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L5to6Vm.txt & nohup python3 6.7.2_ANN_analysis_HPC_L5to6Vh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L5to6Vh.txt & nohup python3 6.7.2_ANN_analysis_HPC_L5to6Vx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L5to6Vx.txt & nohup python3 6.7.2_ANN_analysis_HPC_L6to7Ve.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L6to7Ve.txt & nohup python3 6.7.2_ANN_analysis_HPC_L6to7Vm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L6to7Vm.txt & nohup python3 6.7.2_ANN_analysis_HPC_L6to7Vh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L6to7Vh.txt & nohup python3 6.7.2_ANN_analysis_HPC_L6to7Vx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L6to7Vx.txt & nohup python3 6.7.2_ANN_analysis_HPC_L7to9Ve.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L7to9Ve.txt & nohup python3 6.7.2_ANN_analysis_HPC_L7to9Vm.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L7to9Vm.txt & nohup python3 6.7.2_ANN_analysis_HPC_L7to9Vh.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L7to9Vh.txt & nohup python3 6.7.2_ANN_analysis_HPC_L7to9Vx.py > ../terminal_info/6.7.2_ANN_analysis_HPC_L7to9Vx.txt & exit
+
+
