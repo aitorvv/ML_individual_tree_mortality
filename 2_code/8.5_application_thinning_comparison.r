@@ -2,7 +2,7 @@
 ####                       Application on thinning - comparison                         ####
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 06/11/2023                              #
-#                              Last modification: 18/01/2024                               #
+#                              Last modification: 25/07/2023                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -81,6 +81,8 @@ graph_title <- 'application/Tcontrol_to_others'
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_control <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
                 graph_title = 'application/pointline-control_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+pl_control_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                            graph_title = 'application/pointline-control_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -143,6 +145,8 @@ graph_title <- 'application/Tabove_to others'
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_above <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
                 graph_title = 'application/pointline-above_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+pl_above_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                          graph_title = 'application/pointline-above_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -205,6 +209,8 @@ graph_title <- 'application/Tbelow_to others'
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_below <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
                 graph_title = 'application/pointline-below_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+pl_below_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                          graph_title = 'application/pointline-below_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -248,3 +254,9 @@ pl_above <- pl_above + theme(plot.title = element_blank())
 pl_below <- pl_below + theme(plot.title = element_blank())
 ggarrange(pl_control, pl_above, pl_below, ncol = 3, nrow = 1, common.legend = TRUE, legend = "bottom", labels = c("A", "B", "C"), hjust = -0.5, font.label = list(size = 20))
 ggsave("3_figures/tmp_figures/9.4_best_model_metrics/application/pointline_all_cases.png", units = 'mm', dpi = 300, width = 600, height = 300)
+
+pl_control_dashed <- pl_control_dashed + theme(plot.title = element_blank())
+pl_above_dashed <- pl_above_dashed + theme(plot.title = element_blank())
+pl_below_dashed <- pl_below_dashed + theme(plot.title = element_blank())
+ggarrange(pl_control_dashed, pl_above_dashed, pl_below_dashed, ncol = 3, nrow = 1, common.legend = TRUE, legend = "bottom", labels = c("A", "B", "C"), hjust = -0.5, font.label = list(size = 20))
+ggsave("3_figures/tmp_figures/9.4_best_model_metrics/application/pointline_all_cases_dashed.png", units = 'mm', dpi = 300, width = 600, height = 300)
