@@ -1,4 +1,4 @@
-cff-version: 1.0.0
+cff-version: 1.1.0
 message: "If you use this resources, please cite it as below."
 authors:
 - family-names: "Vázquez-Veloso"
@@ -20,7 +20,7 @@ authors:
   given-names: "Hans"
   orcid: "https://orcid.org/0000-0002-4958-1868"
 title: "Comparing Machine Learning algorithms for assessing individual tree mortality: code and data"
-version: 1.0.0
-doi: https://zenodo.org/doi/10.5281/zenodo.10996555
-date-released: 2024-04-19
+version: 1.1.0
+doi: https://zenodo.org/doi/10.5281/zenodo.12818894
+date-released: 2024-07-25
 url: "https://github.com/aitorvv/ML_individual_tree_mortality"
