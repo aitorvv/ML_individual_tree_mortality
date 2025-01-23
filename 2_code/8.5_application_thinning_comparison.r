@@ -2,7 +2,7 @@
 ####                       Application on thinning - comparison                         ####
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 06/11/2023                              #
-#                              Last modification: 25/07/2023                               #
+#                              Last modification: 15/01/2025                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -12,16 +12,16 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr)
 
-setwd('ML_individual_tree_mortality/')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 
 
 #### Load general information: control thinning ####
 
 # load case metrics
-load('1_data/1_original_df/7_applications/case_metrics_control.RData')
+load('1_data/3_final/7_applications/case_metrics_control.RData')
 
 # load all metrics
-load('1_data/1_original_df/6_final_results/best_models.RData')
+load('1_data/3_final/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph, all_timers)
@@ -53,7 +53,7 @@ all_thinning_metrics <- metrics
 #### Graph comparison ####
 
 # load graph functions
-source('2_code/8.3_graph_functions.r')
+source('2_scripts/3_final/8.3_graph_functions.r')
 
 # reorder the levels of the 'data' variable based on your preferred order
 metrics$data_used <- ifelse(metrics$data_used == 'Tcontrol_Vhard', 'control', ifelse(metrics$data_used == 'Tbelow_Vhard', 'below', 'above'))
@@ -69,9 +69,9 @@ fill <- factor(metrics$classifier, levels = names_methods[-7])
 min_shadow <- 0.5
 max_shadow <- 1.5
 g_title <- 'Performance comparison for the application of unthinned model using different datasets'
-g_x <- 'Classifier'
+g_x <- 'Algorithm'
 g_y <- 'MCC'
-g_legend <- 'Classifiers'
+g_legend <- 'Algorithm'
 color_groups <- color_methods[-7]
 metrics$facet <- metrics$data_used
 df_graph <- metrics
@@ -80,9 +80,14 @@ graph_title <- 'application/Tcontrol_to_others'
 # graph results
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_control <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                graph_title = 'application/pointline-control_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                graph_title = 'application/pointline-control_to_others', 
+                min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 pl_control_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                                            graph_title = 'application/pointline-control_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                              graph_title = 'application/pointline-control_to_others', 
+                              min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
+pl_control_point <- pointline_by_cs_just_point(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                            graph_title = 'application/pointline-control_to_others', 
+                                            min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -91,7 +96,7 @@ pl_control_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$da
 #### Load general information: from above thinning ####
 
 # load case metrics
-load('1_data/1_original_df/7_applications/case_metrics_above.RData')
+load('1_data/3_final/7_applications/case_metrics_above.RData')
 case_metrics$data_used <- ifelse(case_metrics$data_used %in% 'control_Vhard', 'Tcontrol_Vhard', case_metrics$data_used)
 
 #### Select metrics from original cases ####
@@ -133,9 +138,9 @@ fill <- factor(metrics$classifier, levels = names_methods[-7])
 min_shadow <- 1.5
 max_shadow <- 2.5
 g_title <- 'Performance comparison for the application of thinning from above model using different datasets'
-g_x <- 'Classifier'
+g_x <- 'Algorithm'
 g_y <- 'MCC'
-g_legend <- 'Classifiers'
+g_legend <- 'Algorithm'
 color_groups <- color_methods[-7]
 metrics$facet <- metrics$data_used
 df_graph <- metrics
@@ -144,9 +149,14 @@ graph_title <- 'application/Tabove_to others'
 # graph results
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_above <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                graph_title = 'application/pointline-above_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                graph_title = 'application/pointline-above_to_others', 
+                min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 pl_above_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                                          graph_title = 'application/pointline-above_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                            graph_title = 'application/pointline-above_to_others', 
+                            min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
+pl_above_point <- pointline_by_cs_just_point(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                          graph_title = 'application/pointline-above_to_others', 
+                                          min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -155,7 +165,7 @@ pl_above_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data
 #### Load general information: from below thinning ####
 
 # load case metrics
-load('1_data/1_original_df/7_applications/case_metrics_below.RData')
+load('1_data/3_final/7_applications/case_metrics_below.RData')
 case_metrics$data_used <- ifelse(case_metrics$data_used %in% 'control_Vhard', 'Tcontrol_Vhard', case_metrics$data_used)
 
 #### Select metrics from original cases ####
@@ -197,9 +207,9 @@ fill <- factor(metrics$classifier, levels = names_methods[-7])
 min_shadow <- 2.5
 max_shadow <- 3.5
 g_title <- 'Performance comparison for the application of thinning from below model using different datasets'
-g_x <- 'Classifier'
+g_x <- 'Algorithm'
 g_y <- 'MCC'
-g_legend <- 'Classifiers'
+g_legend <- 'Algorithm'
 color_groups <- color_methods[-7]
 metrics$facet <- metrics$data_used
 df_graph <- metrics
@@ -208,9 +218,14 @@ graph_title <- 'application/Tbelow_to others'
 # graph results
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 pl_below <- pointline_by_cs(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                graph_title = 'application/pointline-below_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                graph_title = 'application/pointline-below_to_others', 
+                min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 pl_below_dashed <- pointline_by_cs_dashed(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
-                                          graph_title = 'application/pointline-below_to_others', min_shadow = min_shadow, max_shadow = max_shadow)
+                            graph_title = 'application/pointline-below_to_others', 
+                            min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
+pl_below_point <- pointline_by_cs_just_point(df_graph, x_axis = factor(metrics$data_used), y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, 
+                                          graph_title = 'application/pointline-below_to_others', 
+                                          min_shadow = min_shadow, max_shadow = max_shadow, y_min = 0, y_max = 0.8)
 
 
 #### +-+-+- Break to change the case +-+-+- ####
@@ -238,9 +253,9 @@ x_axis <- factor(metrics$classifier, levels = names_methods[-7])
 y_axis <- as.numeric(metrics$pred_acc)
 fill <- factor(metrics$classifier, levels = names_methods[-7])
 g_title <- 'Performance comparison for models cross-application among thinning regimes'
-g_x <- 'Classifier'
+g_x <- 'Algorithm'
 g_y <- 'MCC'
-g_legend <- 'Classifiers'
+g_legend <- 'Algorithm'
 color_groups <- color_methods[-7]
 metrics$facet <- metrics$description
 df_graph <- metrics
@@ -249,14 +264,20 @@ graph_title <- 'application/all_cases'
 # graph results
 bar_by_cs(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_legend, color_groups, graph_title)
 
-pl_control <- pl_control + theme(plot.title = element_blank())
-pl_above <- pl_above + theme(plot.title = element_blank())
-pl_below <- pl_below + theme(plot.title = element_blank())
+pl_control <- pl_control + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.text = element_text(size = 16))
+pl_above <- pl_above + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
+pl_below <- pl_below + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
 ggarrange(pl_control, pl_above, pl_below, ncol = 3, nrow = 1, common.legend = TRUE, legend = "bottom", labels = c("A", "B", "C"), hjust = -0.5, font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/application/pointline_all_cases.png", units = 'mm', dpi = 300, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/application/pointline_all_cases.png", units = 'mm', dpi = 300, width = 600, height = 300)
 
-pl_control_dashed <- pl_control_dashed + theme(plot.title = element_blank())
-pl_above_dashed <- pl_above_dashed + theme(plot.title = element_blank())
-pl_below_dashed <- pl_below_dashed + theme(plot.title = element_blank())
+pl_control_dashed <- pl_control_dashed + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.text = element_text(size = 16))
+pl_above_dashed <- pl_above_dashed + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
+pl_below_dashed <- pl_below_dashed + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
 ggarrange(pl_control_dashed, pl_above_dashed, pl_below_dashed, ncol = 3, nrow = 1, common.legend = TRUE, legend = "bottom", labels = c("A", "B", "C"), hjust = -0.5, font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/application/pointline_all_cases_dashed.png", units = 'mm', dpi = 300, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/application/pointline_all_cases_dashed.png", units = 'mm', dpi = 300, width = 600, height = 300)
+
+pl_control_point <- pl_control_point + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.text = element_text(size = 16))
+pl_above_point <- pl_above_point + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
+pl_below_point <- pl_below_point + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_blank(), legend.text = element_text(size = 16))
+ggarrange(pl_control_point, pl_above_point, pl_below_point, ncol = 3, nrow = 1, common.legend = TRUE, legend = "bottom", labels = c("A", "B", "C"), hjust = -0.5, font.label = list(size = 20))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/application/pointline_all_cases_point.png", units = 'mm', dpi = 300, width = 600, height = 300)

@@ -70,6 +70,16 @@ nohup Rscript 6.0_run_analysis_HPC_TcVe.r > ../terminal_info/6.0_run_analysis_HP
 nohup Rscript 6.0_run_analysis_HPC_TcVx.r > ../terminal_info/6.0_run_analysis_HPC_TcVx.txt & nohup Rscript 6.0_run_analysis_HPC_TaVx.r > ../terminal_info/6.0_run_analysis_HPC_TaVx.txt & nohup Rscript 6.0_run_analysis_HPC_TbVx.r > ../terminal_info/6.0_run_analysis_HPC_TbVx.txt & exit
 
 
+
+# new: training using 2 thinning degrees
+nohup Rscript 6.0_run_analysis_HPC_TcbVh.r > ../terminal_info/6.0_run_analysis_HPC_TcbVh.txt & nohup Rscript 6.0_run_analysis_HPC_TcaVh.r > ../terminal_info/6.0_run_analysis_HPC_TcaVh.txt & nohup Rscript 6.0_run_analysis_HPC_TabVh.r > ../terminal_info/6.0_run_analysis_HPC_TabVh.txt & exit
+
+nohup Rscript 6.0_run_analysis_HPC_TcbVe.r > ../terminal_info/6.0_run_analysis_HPC_TcbVe.txt & nohup Rscript 6.0_run_analysis_HPC_TcaVe.r > ../terminal_info/6.0_run_analysis_HPC_TcaVe.txt & nohup Rscript 6.0_run_analysis_HPC_TabVe.r > ../terminal_info/6.0_run_analysis_HPC_TabVe.txt & nohup Rscript 6.0_run_analysis_HPC_TcbVm.r > ../terminal_info/6.0_run_analysis_HPC_TcbVm.txt & nohup Rscript 6.0_run_analysis_HPC_TcaVm.r > ../terminal_info/6.0_run_analysis_HPC_TcaVm.txt & nohup Rscript 6.0_run_analysis_HPC_TabVm.r > ../terminal_info/6.0_run_analysis_HPC_TabVm.txt & nohup Rscript 6.0_run_analysis_HPC_TcbVx.r > ../terminal_info/6.0_run_analysis_HPC_TcbVx.txt & nohup Rscript 6.0_run_analysis_HPC_TcaVx.r > ../terminal_info/6.0_run_analysis_HPC_TcaVx.txt & nohup Rscript 6.0_run_analysis_HPC_TabVx.r > ../terminal_info/6.0_run_analysis_HPC_TabVx.txt & exit
+
+nohup Rscript 8.4.0b_HPC_get_thinning_models-training_2_thinning.r > ../terminal_info/8.4.0b_HPC_get_thinning_models-training_2_thinning.txt & exit
+
+
+
 # 3.2. ANN datasets preparation
 
 # run code in 1 line

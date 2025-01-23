@@ -2,7 +2,7 @@
 ####                         Time spent into training - graphs                                
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 18/01/2024                              #
-#                              Last modification: 19/01/2024                               #
+#                              Last modification: 21/01/2025                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -12,10 +12,10 @@ library(ggplot2)
 library(ggpubr)
 
 # working directory
-setwd('ML_individual_tree_mortality/')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 
 # load time results
-load('1_data/1_original_df/6_final_results/timer/timer_comparison.RData')
+load('1_data/3_final/6_final_results/timer/timer_comparison.RData')
 
 # calculate time variables
 my_timer$seconds <- my_timer$toc - my_timer$tic
@@ -52,7 +52,7 @@ g_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '
                         y = seconds, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1) +
-  labs(color = "Classifiers", y = 'Time (seconds)') +
+  labs(color = "Algorithm", y = 'Time (seconds)') +
   scale_color_manual(values = color_methods) +
   theme_classic() +
   theme(
@@ -66,7 +66,7 @@ g_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '
 
 g_var
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time-1_model/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time-1_model/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### Graphs results: dataset size ####
@@ -88,7 +88,7 @@ df$size <- factor(df$size, levels = c('small', 'medium', 'big'))
 g_size <- ggplot(df, aes(x = size, y = seconds, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1) +
-  labs(color = "Classifiers", y = 'Time (seconds)') +
+  labs(color = "Algorithm", y = 'Time (seconds)') +
   scale_color_manual(values = color_methods) +
   theme_classic() +
   theme(
@@ -102,7 +102,7 @@ g_size <- ggplot(df, aes(x = size, y = seconds, color = classifier)) +
 
 g_size
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time-1_model/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time-1_model/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
  
 
 #### Graphs results: variable number and dataset size ####
@@ -134,7 +134,7 @@ g_sizevar <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8
 
 g_sizevar
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time-1_model/heatmap_size-var.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time-1_model/heatmap_size-var.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### Graphs results: grouped graphs ####
@@ -145,4 +145,4 @@ g_var <- g_var + theme(plot.title = element_blank())
 g_sizevar <- g_sizevar + theme(plot.title = element_blank())
 g1 <- ggarrange(g_size, g_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", labels = c('A', 'B'), hjust = 0)
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.5), labels = c('', 'C'), hjust = 0)
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/time.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/time.png", units = 'mm', dpi = 600, width = 600, height = 300)

@@ -57,7 +57,7 @@ metric_graph <- function(metrics_list, n_data, names_methods, color_methods,
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/boxplot_', g_name, '.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/boxplot_', g_name, '.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
   
   
@@ -93,7 +93,7 @@ metric_graph <- function(metrics_list, n_data, names_methods, color_methods,
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/boxplot_density_', g_name, '.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/boxplot_density_', g_name, '.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
   
   
@@ -112,7 +112,7 @@ metric_graph <- function(metrics_list, n_data, names_methods, color_methods,
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/density_all_', g_name, '.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/density_all_', g_name, '.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
   
   
@@ -137,7 +137,7 @@ metric_graph <- function(metrics_list, n_data, names_methods, color_methods,
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/density_split_', g_name, '.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/density_split_', g_name, '.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
 }
 
@@ -167,7 +167,7 @@ time_graph <- function(my_timer_general, my_order, case_study_name){
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/time_analysis.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/time_analysis.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
 }
 
@@ -230,12 +230,12 @@ graph_best_model <- function(best_compilation, case_study_name){
     theme_light() +
     theme(plot.title = element_text(hjust = 0.5)) +
     labs(title = 'Metrics comparison for the best model of each classifier',
-         x = 'Classifier', y = 'Metric value')
+         x = 'Algorithm', y = 'Metric value')
 
   # show graph  
   # print(graph)
   
   # save graph
-  my_path <- paste('3_figures/tmp_figures/9.3_metrics/', case_study_name, '/best_model_all_metrics.png', sep = '')
+  my_path <- paste('2_scripts/4_figures/9.3_metrics/', case_study_name, '/best_model_all_metrics.png', sep = '')
   ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
 }

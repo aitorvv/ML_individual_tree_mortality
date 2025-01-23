@@ -2,7 +2,7 @@
 ####                               Performance graphs                                   ####
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 09/06/2023                              #
-#                              Last modification: 04/01/2024                               #
+#                              Last modification: 21/01/2025                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -13,16 +13,16 @@ library(reshape2) # change structure of data
 library(ggplot2)
 library(ggdist)
 
-setwd('ML_individual_tree_mortality/')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 
 
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/1_original_df/6_final_results/case_study_summary.RData')
+load('1_data/3_final/6_final_results/case_study_summary.RData')
 
 # load functions to graph
-source('2_code/8.1_functions_performance_graphs.r')
+source('2_scripts/3_final/8.1_functions_performance_graphs.r')
 
 # df to compare the best model among study cases
 all_cases_best_model_compilation <- tibble()
@@ -36,7 +36,7 @@ all_timers <- tibble()
 for(case in 1:length(case_study$name)){
   
   # Loading the workspace
-  load(paste('1_data/1_original_df/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  load(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
   
   
   #### Models comparison function ####
@@ -53,7 +53,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: accuracy predicting alive trees', sep = '')
   g_x <- ''
   g_y <- 'Accuracy alive trees'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'acc_alive'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -67,7 +67,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: accuracy predicting dead trees', sep = '')
   g_x <- ''
   g_y <- 'Accuracy dead trees'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'acc_dead'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -81,7 +81,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: accuracy predicting all trees', sep = '')
   g_x <- ''
   g_y <- 'Accuracy all trees'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'acc'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -95,7 +95,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: Area Under the Curve (AUC)', sep = '')
   g_x <- ''
   g_y <- 'AUC'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'auc'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -109,7 +109,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: Area Under the Precision/Recall Curve (AUCPR)', sep = '')
   g_x <- ''
   g_y <- 'AUCPR'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'aucpr'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -132,7 +132,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, " models tested: Cohen's Kappa", sep = '')
   g_x <- ''
   g_y <- 'KAPPA'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'kappa'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -155,7 +155,7 @@ for(case in 1:length(case_study$name)){
   g_title <- paste('Binary classification performance for ', n_data, ' models tested: Phi Coefficient or Matthews Correlation Coefficient (MCC)', sep = '')
   g_x <- ''
   g_y <- 'MCC'
-  g_legend <- 'Classifier'
+  g_legend <- 'Algorithm'
   g_name <- 'mcc'
   metric_graph(metrics_list = metric_list, n_data = n_data, names_methods = names_methods, 
                color_methods = color_methods, g_title = g_title, g_x = g_x, g_y = g_y, g_legend = g_legend,
@@ -303,96 +303,4 @@ for(case in 1:length(case_study$name)){
 
 #### Checkpoint ####
 
-save.image('1_data/1_original_df/6_final_results/best_models.RData')
-# load('1_data/3_final/6_final_results/best_models.RData')
-# 
-# 
-# 
-# 
-# # quería ordenarlos y mostrar bien los resultados para cada caso e estudio
-# # quizás harbía que repetir ANN o hacer más casos de estudio
-# # RF parece el mejor siempre
-# 
-# 
-# 
-# 
-# #names_methods <- c('LR', 'DT', 'RF', 'NB', 'KNN', 'SVM', 'ANN')
-# #color_methods <- c('gray', 'darkolivegreen', 'darkgreen', 'darkblue', 'darkred', 'darkorange', 'gold')
-# 
-# 
-# #### Comparison among study cases: case study 1 ####
-# 
-# # split case study 1 data
-# case_1 <- all_cases_best_model_compilation[grep('D', all_cases_best_model_compilation$case), ]
-# case_2 <- all_cases_best_model_compilation[grep('T', all_cases_best_model_compilation$case), ]
-# 
-# # graph results per study case and metric
-# 
-# for(metric in unique(case_1$Metrics)){
-#   case_1_metric <- case_1[case_1$Metrics == 'mcc', ]
-# }
-# case_1_metric$best_acc <- as.numeric(case_1_metric$best_acc)
-# 
-# 
-# for(metric in unique(case_2$Metrics)){
-#   case_2_metric <- case_2[case_2$Metrics == 'mcc', ]
-# }
-# case_2_metric$best_acc <- as.numeric(case_2_metric$best_acc)
-# 
-# cases_order <- c("Dsmall_Veasy", "Dsmall_Vmedium", "Dsmall_Vhard", "Dmedium_Veasy", "Dmedium_Vmedium", "Dmedium_Vhard", "Dbig_Veasy", "Dbig_Vmedium", "Dbig_Vhard")
-# 
-# 
-# 
-# # Create a ggplot with only density plots splitted by classifier
-# ggplot(case_1_metric, aes(x = best_acc, colour = names_methods)) + 
-#   geom_bar(lwd = 0.5, linetype = 1) + # graph type
-#   labs(title = 'g_title', # title
-#        x = 'g_x', y = 'g_y', # labs
-#        fill = 'g_legend') + # legend
-#   theme_light() + # theme
-#   theme(plot.title = element_text(hjust = 0.5)) + # center title
-#   scale_color_manual(values = color_methods) + #c(color_methods, 'darkviolet')) +  # colors
-#   facet_wrap(~ case, scales = 'free')
-# 
-# ggplot(case_1_metric, aes(x = best_acc, colour = names_methods)) + 
-#   geom_density(lwd = 0.5, linetype = 1) + # graph type
-#   labs(title = 'g_title', # title
-#        x = 'g_x', y = 'g_y', # labs
-#        fill = 'g_legend') + # legend
-#   theme_light() + # theme
-#   theme(plot.title = element_text(hjust = 0.5)) + # center title
-#   scale_color_manual(values = color_methods)  #c(color_methods, 'darkviolet')) +  # colors
-#   
-# 
-# #------------------------------------
-# 
-# # Create a grouped bar chart
-# grouped_bar_chart <- ggplot(case_1_metric, aes(x = factor(case), y = best_acc, fill = names_methods)) +
-#   geom_bar(stat = "identity", position = "dodge") +
-#   labs(title = "Best model selected per classifier across case study: data splitted by size",
-#        x = "Case study",
-#        y = "MCC") +
-#   theme_minimal() +
-#   theme(legend.position = "top") +
-#   scale_fill_manual(values = color_methods)  # Custom color scheme for methodologies
-# 
-# print(grouped_bar_chart)
-# # save graph
-# my_path <- paste('2_scripts/4_figures/9.4_best_model_metrics/classifiers_mcc_size.png', sep = '')
-# ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
-# 
-# 
-# # Create a grouped bar chart
-# grouped_bar_chart <- ggplot(case_2_metric, aes(x = factor(case), y = best_acc, fill = names_methods)) +
-#   geom_bar(stat = "identity", position = "dodge") +
-#   labs(title = "Best model selected per classifier across case study: data splitted by thinning regime",
-#        x = "Case study",
-#        y = "MCC") +
-#   theme_minimal() +
-#   theme(legend.position = "top") +
-#   scale_fill_manual(values = color_methods)  # Custom color scheme for methodologies
-# 
-# print(grouped_bar_chart)
-# # save graph
-# my_path <- paste('2_scripts/4_figures/9.4_best_model_metrics/classifiers_mcc_thinning.png', sep = '')
-# ggsave(filename = my_path, device = 'png', units = 'mm', dpi = 300, width = 300, height = 300)
+save.image('1_data/3_final/6_final_results/best_models.RData')

@@ -2,7 +2,7 @@
 ####                              Case studies: analysis                                ####
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 27/10/2023                              #
-#                              Last modification: 25/07/2024                               #
+#                              Last modification: 22/01/2025                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -13,13 +13,13 @@ library(ggplot2)
 library(ggpubr)
 library(factoextra)
 
-setwd('ML_individual_tree_mortality/')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 
 
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/1_original_df/6_final_results/best_models.RData')
+load('1_data/3_final/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
@@ -162,7 +162,7 @@ df_vars <- df_vars[df_vars$data == 'big', ]
 g_var <- ggplot(df_vars, aes(x = vars, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1) +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -173,18 +173,18 @@ g_var <- ggplot(df_vars, aes(x = vars, y = best_acc, color = names_methods)) +
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
   ) +
-  ggtitle("Classifier performance by number of variables") +
+  ggtitle("Algorithm performance by number of variables") +
   xlab(NULL)  # Removes the x-axis title
 
 g_var
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/vars/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/vars/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # graph
 gdash_var <- ggplot(df_vars, aes(x = vars, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -195,17 +195,39 @@ gdash_var <- ggplot(df_vars, aes(x = vars, y = best_acc, color = names_methods))
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
   ) +
-  ggtitle("Classifier performance by number of variables") +
+  ggtitle("Algorithm performance by number of variables") +
   xlab(NULL)  # Removes the x-axis title
 
 gdash_var
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/vars/lines_dash_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# graph points
+gpoint_var <- ggplot(df_vars, aes(x = vars, y = best_acc, color = names_methods)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'MCC') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Algorithm performance by number of variables") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_var
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/vars/point_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # Bar graph
 gbar_var <- ggplot(df_vars, aes(x = vars, y = best_acc, fill = names_methods)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(fill = "Classifiers", y = 'MCC') +
+  labs(fill = "Algorithm", y = 'MCC') +
   scale_fill_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -216,12 +238,12 @@ gbar_var <- ggplot(df_vars, aes(x = vars, y = best_acc, fill = names_methods)) +
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)
   ) +
-  ggtitle("Classifier performance by number of variables") +
+  ggtitle("Algorithm performance by number of variables") +
   xlab(NULL)  # Removes the x-axis title
 
 gbar_var
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/vars/bars_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/vars/bars_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### dataset size ####
@@ -248,7 +270,7 @@ df_size$data <- factor(df_size$data, levels = desired_order)
 g_size <- ggplot(df_size, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1) +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -258,19 +280,19 @@ g_size <- ggplot(df_size, aes(x = data, y = best_acc, color = names_methods)) +
     axis.text = element_text(size = 20),
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
-  ) +
-  ggtitle("Classifier performance by dataset size") +
+    ) +
+  ggtitle("Algorithm performance by dataset size") +
   xlab(NULL)  # Removes the x-axis title
 
 g_size
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/size/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # graph
 gdash_size <- ggplot(df_size, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -281,17 +303,39 @@ gdash_size <- ggplot(df_size, aes(x = data, y = best_acc, color = names_methods)
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
   ) +
-  ggtitle("Classifier performance by dataset size") +
+  ggtitle("Algorithm performance by dataset size") +
   xlab(NULL)  # Removes the x-axis title
 
 gdash_size
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/size/lines_dash_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# graph point
+gpoint_size <- ggplot(df_size, aes(x = data, y = best_acc, color = names_methods)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'MCC') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Algorithm performance by dataset size") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_size
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size/point_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # Bar graph
 gbar_size <- ggplot(df_size, aes(x = data, y = best_acc, fill = names_methods)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(fill = "Classifiers", y = 'MCC') +
+  labs(fill = "Algorithm", y = 'MCC') +
   scale_fill_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -302,12 +346,12 @@ gbar_size <- ggplot(df_size, aes(x = data, y = best_acc, fill = names_methods)) 
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)
   ) +
-  ggtitle("Classifier performance by dataset size") +
+  ggtitle("Algorithm performance by dataset size") +
   xlab(NULL)  # Removes the x-axis title
 
 gbar_size
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/size/bars_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size/bars_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### dataset size and variables ####
@@ -326,7 +370,7 @@ g_sizevar <- ggplot(df2, aes(x = vars, y = names_methods, fill = best_acc)) +
   scale_fill_gradient('MCC ', low = "white", high = "darkgreen") +
   xlab('') +
   ylab('') +
-  ggtitle('Classifier performance by dataset size and number of variables') +
+  ggtitle('Algorithm performance by dataset size and number of variables') +
   theme_minimal() + 
   theme(
     legend.position = "bottom",
@@ -341,31 +385,39 @@ g_sizevar <- ggplot(df2, aes(x = vars, y = names_methods, fill = best_acc)) +
 
 g_sizevar
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/size-vars/heatmap_size-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size-vars/heatmap_size-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # grouped graphs
-g_var <- g_var + theme(plot.title = element_blank())
-g_size <- g_size + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+g_var <- g_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_size <- g_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(g_size, g_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", hjust = 0, labels = c('', 'C'), font.label = list(size = 20), widths = c(1, 1.2))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
-# grouper graphs - dashed lines
-gdash_var <- gdash_var + theme(plot.title = element_blank())
-gdash_size <- gdash_size + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+# grouped graphs - dashed lines
+gdash_var <- gdash_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gdash_size <- gdash_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(gdash_size, gdash_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", hjust = 0, labels = c('', 'C'), font.label = list(size = 20), widths = c(1, 1.2))
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_dashed_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
-# grouper graphs - bars
-gbar_var <- gbar_var + theme(plot.title = element_blank())
-gbar_size <- gbar_size + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+# grouped graphs - points
+gpoint_var <- gpoint_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gpoint_size <- gpoint_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
+g1 <- ggarrange(gpoint_size, gpoint_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
+ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", hjust = 0, labels = c('', 'C'), font.label = list(size = 20), widths = c(1, 1.2))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_point_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+
+# grouped graphs - bars
+gbar_var <- gbar_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gbar_size <- gbar_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(gbar_size, gbar_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", hjust = 0, labels = c('', 'C'), font.label = list(size = 20), widths = c(1, 1.2))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_size-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
 
 
@@ -384,7 +436,7 @@ df_th$data <- factor(df_th$data, levels = desired_order)
 g_th <- ggplot(df_th, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1) +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -394,19 +446,19 @@ g_th <- ggplot(df_th, aes(x = data, y = best_acc, color = names_methods)) +
     axis.text = element_text(size = 20),
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
-  ) +
-  ggtitle("Classifier performance by thinning grades") +
+    ) +
+  ggtitle("Algorithm performance by thinning grades") +
   xlab(NULL)  # Removes the x-axis title
 
 g_th
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/thinning/lines_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/thinning/lines_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # dash graph
 gdash_th <- ggplot(df_th, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -417,17 +469,39 @@ gdash_th <- ggplot(df_th, aes(x = data, y = best_acc, color = names_methods)) +
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
   ) +
-  ggtitle("Classifier performance by thinning grades") +
+  ggtitle("Algorithm performance by thinning grades") +
   xlab(NULL)  # Removes the x-axis title
 
 gdash_th
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/thinning/lines_dash_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# point graph
+gpoint_th <- ggplot(df_th, aes(x = data, y = best_acc, color = names_methods)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'MCC') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Algorithm performance by thinning grades") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_th
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/thinning/point_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # Bar graph
 gbar_th <- ggplot(df_th, aes(x = data, y = best_acc, fill = names_methods)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(fill = "Classifiers", y = 'MCC') +
+  labs(fill = "Algorithm", y = 'MCC') +
   scale_fill_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -438,12 +512,12 @@ gbar_th <- ggplot(df_th, aes(x = data, y = best_acc, fill = names_methods)) +
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)
   ) +
-  ggtitle("Classifier performance by thinning grades") +
+  ggtitle("Algorithm performance by thinning grades") +
   xlab(NULL)  # Removes the x-axis title
 
 gbar_th
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/thinning/bars_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/thinning/bars_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### thinning grades and variables ####
@@ -455,7 +529,7 @@ g_thvar <- ggplot(df3, aes(x = vars, y = names_methods, fill = best_acc)) +
   scale_fill_gradient('MCC ', low = "white", high = "darkgreen") +
   xlab('') +
   ylab('') +
-  ggtitle('Classifier performance by thinning grades and amount of variables') +
+  ggtitle('Algorithm performance by thinning grades and amount of variables') +
   theme_minimal() + 
   theme(
     legend.position = "bottom",
@@ -465,30 +539,37 @@ g_thvar <- ggplot(df3, aes(x = vars, y = names_methods, fill = best_acc)) +
     axis.title = element_text(size = 15),
     plot.title = element_text(size = 20, hjust = 0.5),
     strip.text.x = element_text(size = 20)
-  ) +
+    ) +
   facet_wrap(~factor(data, levels = c('control', 'above', 'below')), ncol = 3)
 
 g_thvar
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/thinning-vars/heatmap_thinning-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/thinning-vars/heatmap_thinning-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # grouped graphs
-g_th <- g_th + theme(plot.title = element_blank())
-g_thvar <- g_thvar + theme(plot.title = element_blank())
+g_th <- g_th  + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_thvar <- g_thvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 ggarrange(g_th, g_thvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
-# grouped graps - dashed
-gdash_th <- gdash_th + theme(plot.title = element_blank())
-g_thvar <- g_thvar + theme(plot.title = element_blank())
+# grouped graphs - dashed
+gdash_th <- gdash_th  + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_thvar <- g_thvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 ggarrange(gdash_th, g_thvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_dash_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
+# grouped graphs - point
+gpoint_th <- gpoint_th + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_thvar <- g_thvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
+ggarrange(gpoint_th, g_thvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_point_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+
+
 # grouped graphs - bars
-gbar_th <- gbar_th + theme(plot.title = element_blank())
-g_thvar <- g_thvar + theme(plot.title = element_blank())
+gbar_th <- gbar_th + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_thvar <- g_thvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 ggarrange(gbar_th, g_thvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_thinning-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
 
 #### dataset records length ####
@@ -503,7 +584,7 @@ df_rec$data <- ifelse(df_rec$data == '7 to 9', '8 to 9', df_rec$data)
 g_rec <- ggplot(df_rec, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1) +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -513,19 +594,19 @@ g_rec <- ggplot(df_rec, aes(x = data, y = best_acc, color = names_methods)) +
     axis.text = element_text(size = 20),
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
-  ) +
-  ggtitle("Classifiers performance by inventory record length") +
+    ) +
+  ggtitle("Algorithms performance by inventory record length") +
   xlab(NULL)  # Removes the x-axis title
 
 g_rec
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/record/lines_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/record/lines_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
-# graph
+# graph dashed
 gdash_rec <- ggplot(df_rec, aes(x = data, y = best_acc, color = names_methods)) +
   geom_point(size = 3) +
   geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'MCC') +
+  labs(color = "Algorithm", y = 'MCC') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -536,17 +617,39 @@ gdash_rec <- ggplot(df_rec, aes(x = data, y = best_acc, color = names_methods)) 
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)  
   ) +
-  ggtitle("Classifiers performance by inventory record length") +
+  ggtitle("Algorithms performance by inventory record length") +
   xlab(NULL)  # Removes the x-axis title
 
 gdash_rec
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/record/lines_dash_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# graph point
+gpoint_rec <- ggplot(df_rec, aes(x = data, y = best_acc, color = names_methods)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = names_methods), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'MCC') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Algorithms performance by inventory record length") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_rec
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/record/point_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # Bar graph
 gbar_rec <- ggplot(df_rec, aes(x = data, y = best_acc, fill = names_methods)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(fill = "Classifiers", y = 'MCC') +
+  labs(fill = "Algorithm", y = 'MCC') +
   scale_fill_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -557,12 +660,12 @@ gbar_rec <- ggplot(df_rec, aes(x = data, y = best_acc, fill = names_methods)) +
     axis.title = element_text(size = 20),
     plot.title = element_text(size = 20, hjust = 0.5)
   ) +
-  ggtitle("Classifiers performance by inventory record length") +
+  ggtitle("Algorithms performance by inventory record length") +
   xlab(NULL)  # Removes the x-axis title
 
 gbar_rec
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/record/bars_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/record/bars_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 #### record lenght and variables ####
 df4 <- df[df$case_group == 'records', ]
@@ -572,7 +675,7 @@ g_recvar <- ggplot(df4, aes(x = vars, y = names_methods, fill = best_acc)) +
   scale_fill_gradient('MCC ', low = "white", high = "darkgreen") +
   xlab('') +
   ylab('') +
-  ggtitle('Classifiers performance by inventory record length and number of variables') +
+  ggtitle('Algorithms performance by inventory record length and number of variables') +
   theme_minimal() + 
   theme(
     legend.position = "bottom",
@@ -587,19 +690,31 @@ g_recvar <- ggplot(df4, aes(x = vars, y = names_methods, fill = best_acc)) +
 
 g_recvar
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/record-vars/heatmap_record-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/record-vars/heatmap_record-vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # grouped graphs
-g_rec <- g_rec + theme(plot.title = element_blank())
-g_recvar <- g_recvar + theme(plot.title = element_blank())
+g_rec <- g_rec + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_recvar <- g_recvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 ggarrange(g_rec, g_recvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+
+# grouped graphs - dashed
+gdash_rec <- gdash_rec + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_recvar <- g_recvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
+ggarrange(gdash_rec, g_recvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_dash_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+
+# grouped graphs - dashed
+gpoint_rec <- gpoint_rec + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_recvar <- g_recvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
+ggarrange(gpoint_rec, g_recvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_point_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
 # grouped graphs - bars
-gbar_rec <- gbar_rec + theme(plot.title = element_blank())
-g_recvar <- g_recvar + theme(plot.title = element_blank())
+gbar_rec <- gbar_rec + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_recvar <- g_recvar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 ggarrange(gbar_rec, g_recvar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.2), hjust = 0, labels = c('A', 'B'), font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/grouped_bar_record-vars.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
 
 #### size x thinning ####
@@ -613,12 +728,12 @@ new_df <- spread(new_df, key = data, value = best_acc)
 
 # summarize data
 new_df <- plyr::ddply(new_df, 'names_methods', summarise,
-                      `big` = mean(`big`, na.rm = TRUE),
-                      `medium` = mean(`medium & random`, na.rm = TRUE),
-                      `small` = mean(`small & random`, na.rm = TRUE),
-                      `control` = mean(`control`, na.rm = TRUE),
-                      `above` = mean(`above`, na.rm = TRUE),
-                      `below` = mean(`below`, na.rm = TRUE)
+                       `big` = mean(`big`, na.rm = TRUE),
+                       `medium` = mean(`medium & random`, na.rm = TRUE),
+                       `small` = mean(`small & random`, na.rm = TRUE),
+                       `control` = mean(`control`, na.rm = TRUE),
+                       `above` = mean(`above`, na.rm = TRUE),
+                       `below` = mean(`below`, na.rm = TRUE)
 )
 
 # get labels to rownames
@@ -662,7 +777,7 @@ ggarrange(g1, g2, g3,
           common.legend = TRUE, legend = "none",  # "bottom"
           labels = c('C1', 'C2', 'C3', 'A1', 'A2', 'A3', 'B1', 'B2', 'B3'), hjust = 0, font.label = list(size = 20))
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/size-thinning/size_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size-thinning/size_thinning.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### size x records ####
@@ -730,7 +845,7 @@ ggarrange(g1, g2, g3,
           common.legend = TRUE, legend = "none",  # "bottom"
           labels = c('A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1', 'D2', 'D3'), hjust = 0, font.label = list(size = 20))
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/size-records/size_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/size-records/size_records.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### TIME GRAPHS ####
@@ -746,7 +861,7 @@ all_timers <- all_timers[all_timers$data %in% c('small & random', 'medium & rand
 
 # rename classes
 all_timers$data <- ifelse(all_timers$data == 'small & random', 'small', 
-                          ifelse(all_timers$data == 'medium & random', 'medium', 'big'))
+                       ifelse(all_timers$data == 'medium & random', 'medium', 'big'))
 
 # reorder the levels of the 'data' variable based on your preferred order
 desired_order <- c('small', 'medium', 'big') 
@@ -792,7 +907,7 @@ g_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '
                         y = mins_per_model, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1) +
-  labs(color = "Classifiers", y = 'Time (min)') +
+  labs(color = "Algorithm", y = 'Time (min)') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -808,14 +923,14 @@ g_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '
 
 g_var
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/lines_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # graphs vars time - dashed
 gdash_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '9', '10')), 
-                            y = mins_per_model, color = classifier)) +
+                        y = mins_per_model, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'Time (min)') +
+  labs(color = "Algorithm", y = 'Time (min)') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -833,11 +948,34 @@ gdash_var
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/lines_dash_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# graphs vars time - point
+gpoint_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '9', '10')), 
+                            y = mins_per_model, color = classifier)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = classifier), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'Time (min)') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Averaged computation time spent into train a single model by number of variables") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_var
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/point_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # graphs vars time - bars
 gbar_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8', '9', '10')), 
-                           y = mins_per_model, fill = classifier)) +  # Use fill instead of color for bars
+                        y = mins_per_model, fill = classifier)) +  # Use fill instead of color for bars
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +  # Create bar plot
-  labs(fill = "Classifiers", y = 'Time (min)') +  # Use labs(fill = ...) for legend title
+  labs(fill = "Algorithm", y = 'Time (min)') +  # Use labs(fill = ...) for legend title
   scale_fill_manual(values = color_methods) +  # Set colors manually
   theme_minimal() +
   theme(
@@ -854,7 +992,7 @@ gbar_var <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8'
 
 gbar_var
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time/bars_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/bars_vars.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 
@@ -879,11 +1017,11 @@ desired_order <- c('small', 'medium', 'big')
 # delete grouped classifiers processes and provide new labels
 df_size <- df_size[is.na(df_size$classifier), ]
 df_size$classifier <- ifelse(grepl('lr', df_size$msg), 'LR', 
-                             ifelse(grepl('rf', df_size$msg), 'RF', 
-                                    ifelse(grepl('svm', df_size$msg), 'SVM', 
-                                           ifelse(grepl('dt', df_size$msg), 'DT', 
-                                                  ifelse(grepl('nb', df_size$msg), 'NB', 
-                                                         ifelse(grepl('knn', df_size$msg), 'KNN', NA))))))
+                        ifelse(grepl('rf', df_size$msg), 'RF', 
+                               ifelse(grepl('svm', df_size$msg), 'SVM', 
+                                      ifelse(grepl('dt', df_size$msg), 'DT', 
+                                             ifelse(grepl('nb', df_size$msg), 'NB', 
+                                                    ifelse(grepl('knn', df_size$msg), 'KNN', NA))))))
 
 # summarize by size_vars and classifier
 df_size <- df_size %>% 
@@ -901,7 +1039,7 @@ df_size$classifier <- factor(df_size$classifier, levels = names_methods)
 g_size <- ggplot(df_size, aes(x = data, y = mins_per_model, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1) +
-  labs(color = "Classifiers", y = 'Time (min)') +
+  labs(color = "Algorithm", y = 'Time (min)') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -917,13 +1055,13 @@ g_size <- ggplot(df_size, aes(x = data, y = mins_per_model, color = classifier))
 
 g_size
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/lines_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # graphs vars time - dashed
 gdash_size <- ggplot(df_size, aes(x = data, y = mins_per_model, color = classifier)) +
   geom_point(size = 3) +
   geom_line(aes(group = classifier), linewidth = 1, linetype = 'dashed') +
-  labs(color = "Classifiers", y = 'Time (min)') +
+  labs(color = "Algorithm", y = 'Time (min)') +
   scale_color_manual(values = color_methods) +
   theme_minimal() +
   theme(
@@ -941,10 +1079,32 @@ gdash_size
 
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/lines_dash_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
+# graphs vars time - point
+gpoint_size <- ggplot(df_size, aes(x = data, y = mins_per_model, color = classifier)) +
+  geom_point(size = 7) +
+  # geom_line(aes(group = classifier), linewidth = 1, linetype = 'dashed') +
+  labs(color = "Algorithm", y = 'Time (min)') +
+  scale_color_manual(values = color_methods) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 20, hjust = 0.5)  
+  ) +
+  ggtitle("Averaged computation time spent into train a single model by amount of data") +
+  xlab(NULL)  # Removes the x-axis title
+
+gpoint_size
+
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/point_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+
 # graphs vars time - bars
 gbar_size <- ggplot(df_size, aes(x = data, y = mins_per_model, fill = classifier)) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +  # Create bar plot
-  labs(fill = "Classifiers", y = 'Time (min)') +  # Use labs(fill = ...) for legend title
+  labs(fill = "Algorithm", y = 'Time (min)') +  # Use labs(fill = ...) for legend title
   scale_fill_manual(values = color_methods) +  # Set colors manually
   theme_minimal() +
   theme(
@@ -960,7 +1120,7 @@ gbar_size <- ggplot(df_size, aes(x = data, y = mins_per_model, fill = classifier
 
 gbar_size
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time/bars_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/bars_size.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 
 #### number of variables and size ####
@@ -1026,28 +1186,37 @@ g_sizevar <- ggplot(df, aes(x = factor(n_vars, levels = c('4', '5', '6', '7', '8
 
 g_sizevar
 
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/time/heatmap_size-var.png", units = 'mm', dpi = 600, width = 450, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/time/heatmap_size-var.png", units = 'mm', dpi = 600, width = 450, height = 300)
 
 # grouped graph
-g_size <- g_size + theme(plot.title = element_blank())
-g_var <- g_var + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+g_size <- g_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_var <- g_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(g_size, g_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", labels = c('A', 'B'), hjust = 0, font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.5), labels = c('', 'C'), hjust = 0, font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/time.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/time.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
 # grouped graph - dashed
-gdash_size <- gdash_size + theme(plot.title = element_blank())
-gdash_var <- gdash_var + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+gdash_size <- gdash_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gdash_var <- gdash_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(gdash_size, gdash_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", labels = c('A', 'B'), hjust = 0, font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.5), labels = c('', 'C'), hjust = 0, font.label = list(size = 20))
 ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/time_dashed.png", units = 'mm', dpi = 600, width = 600, height = 300)
 
-# grouped graph
-gbar_size <- gbar_size + theme(plot.title = element_blank())
-gbar_var <- gbar_var + theme(plot.title = element_blank())
-g_sizevar <- g_sizevar + theme(plot.title = element_blank())
+# grouped graph - point
+gpoint_size <- gpoint_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gpoint_var <- gpoint_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
+g1 <- ggarrange(gpoint_size, gpoint_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", labels = c('A', 'B'), hjust = 0, font.label = list(size = 20))
+ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.5), labels = c('', 'C'), hjust = 0, font.label = list(size = 20))
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/time_point.png", units = 'mm', dpi = 600, width = 600, height = 300)
+
+
+# grouped graph - bars
+gbar_size <- gbar_size + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+gbar_var <- gbar_var + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), axis.title.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 16))
+g_sizevar <- g_sizevar + theme(plot.title = element_blank(), axis.text.x = element_text(size = 16), axis.text.y = element_text(size = 16), legend.title = element_text(size = 16), legend.text = element_text(size = 10))
 g1 <- ggarrange(gbar_size, gbar_var, ncol = 1, nrow = 2, common.legend = TRUE, legend = "bottom", labels = c('A', 'B'), hjust = 0, font.label = list(size = 20))
 ggarrange(g1, g_sizevar, ncol = 2, nrow = 1, common.legend = FALSE, legend = "bottom", widths = c(1, 1.5), labels = c('', 'C'), hjust = 0, font.label = list(size = 20))
-ggsave("3_figures/tmp_figures/9.4_best_model_metrics/grouped_graphs/bars_time.png", units = 'mm', dpi = 600, width = 600, height = 300)
+ggsave("2_scripts/4_figures/9.4_best_model_metrics/grouped_graphs/bars_time.png", units = 'mm', dpi = 600, width = 600, height = 300)

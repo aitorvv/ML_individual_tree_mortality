@@ -28,27 +28,6 @@ rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
 
 #### Unthinned model and thinned data: model selection ####
 
-# # after inspect previous results, I choose the models with the "hard" type of variables
-# # I filter the best model to know which sould I use
-# my_models <- all_cases_best_model_compilation[all_cases_best_model_compilation$case %in% 'Tcontrol_Vhard', ]
-# my_models <- my_models[my_models$Metrics %in% 'mcc', ]
-# 
-# # I pick the models already trained
-# load('1_data/3_final/5_analysis/Tcontrol_Vhard/models.RData')
-# 
-# # select the models needed
-# lr_m <- lr_model$lr_model_27
-# dt_m <- dt_model$dt_model_44
-# rf_m <- rf_model$rf_model_7
-# nb_m <- nb_model$nb_model_7
-# knn_m <- knn_model$knn_model_26
-# svm_m <- svm_model$svm_model_34
-# models_list <- list(lr_m, dt_m, rf_m, nb_m, knn_m, svm_m)
-# 
-# # and delete the rest to save space
-# rm(lr_model, dt_model, rf_model, nb_model, knn_model, svm_model, 
-#    lr_m, dt_m, rf_m, nb_m, knn_m, svm_m)
-
 # already selected models
 models_list <- readRDS('/home/aitorvazquez/PhD/Vitality/3_final/data/7_applications/control_models.rds')
 my_models <- readRDS('/home/aitorvazquez/PhD/Vitality/3_final/data/7_applications/control_models_summary.rds')
@@ -506,7 +485,7 @@ print('Predictions with control data done!')
 data_used <- 'Tbelow_Vhard'
 
 # read data
-df_study <- read.csv('/home/aitorvazquez/PhD/Vitality/3_final/data/4_datasets/df_above_time.csv')
+df_study <- read.csv('/home/aitorvazquez/PhD/Vitality/3_final/data/4_datasets/df_below_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())

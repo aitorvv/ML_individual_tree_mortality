@@ -2,7 +2,7 @@
 ####                              Metrics organization                                  ####
 #                                                                                          #
 #                            Aitor Vázquez Veloso, 09/06/2023                              #
-#                              Last modification: 04/01/2024                               #
+#                              Last modification: 21/01/2025                               #
 #------------------------------------------------------------------------------------------#
 
 
@@ -26,7 +26,7 @@ library(RJSONIO) # read results from Python neural networks
 library(tictoc) # check time for training each model
 library(reshape2) # change structure of data
 
-setwd('ML_individual_tree_mortality/')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 
 
 #### Selection section ####
@@ -58,7 +58,7 @@ case_study <- rbind(case_study_1, case_study_2, case_study_3)
 rm(df_size, thinning, var_size, case_study_1, case_study_2, case_study_3, df_len)
 
 # save case_study combinations
-save.image('1_data/1_original_df/6_final_results/case_study_summary.RData')
+save.image('1_data/3_final/6_final_results/case_study_summary.RData')
 
 
 #### Functions needed ####
@@ -272,13 +272,55 @@ normalize <- function(x){
 for(case in 1:length(case_study$name)){
   
   # Loading the workspace
-  load(paste("1_data/1_original_df/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
+  load(paste("1_data/3_final/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
   
   
   #### Checkpoint ####
   
   # save metrics compilation
-  save.image(paste('1_data/1_original_df/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  save.image(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  print(paste(case_study$name[case], ' saved succesfully!', sep = ''))
+  
+  # remove everything except needed variables
+  rm(list = setdiff(ls(), c('case_study', 'normalize')))
+}
+
+
+
+####-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*####
+
+
+
+#### New: thinning by training with 2 dfs ####
+
+# different options for all the case study analyzed
+thinning = c('controlabove', 'controlbelow', 'abovebelow')
+var_size = c('hard')
+
+# case study 2.2 - different thinning datasets with different amount of variables; using 2 thinnings to train
+case_study <- expand.grid(thinning, var_size)
+case_study$name <- paste('T', case_study$Var1, '_V', case_study$Var2, sep = '')
+
+# remove temporal variables
+rm(thinning, var_size)
+
+# save case_study combinations
+save.image('1_data/3_final/6_final_results/case_study_summary-training_2_thinning.RData')
+
+
+
+#### Import R analysis results - adapted without ANN ####
+
+for(case in 1:length(case_study$name)){
+  
+  # Loading the workspace
+  load(paste("1_data/3_final/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
+  
+  
+  #### Checkpoint ####
+  
+  # save metrics compilation
+  save.image(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
   print(paste(case_study$name[case], ' saved succesfully!', sep = ''))
   
   # remove everything except needed variables
