@@ -114,7 +114,7 @@ The content of this repository is under the [MIT license](./LICENSE).
 [![](https://github.com/aitorvv.png?size=50)](https://github.com/aitorvv) 
 
 [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aitor.vazquez.veloso@uva.es)
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0003-0227-506X)
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0003-0227-506X)
 [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=XNMn1cUAAAAJ&hl=es&oi=ao)
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Aitor_Vazquez_Veloso)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://linkedin.com/in/aitorvazquezveloso/)
@@ -125,7 +125,7 @@ The content of this repository is under the [MIT license](./LICENSE).
 
 <img src="https://www.lss.ls.tum.de/fileadmin/_processed_/f/0/csm_Picture20_57f925f9ae.webp" alt="Description" width="50"> 
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0002-9658-8990) 
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-9658-8990) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Astor-Torano-Caicoya) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/toranoac) 
 [<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/astor-torano-caicoya/)
@@ -134,7 +134,7 @@ The content of this repository is under the [MIT license](./LICENSE).
 
 [![](https://github.com/Felipe-Bravo.png?size=50)](https://github.com/Felipe-Bravo) 
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0001-7348-6695) 
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0001-7348-6695) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Felipe-Bravo-11) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/felipebravooviedo) 
 [![X](https://img.shields.io/badge/X-1DA1F2?logo=x&logoColor=white)](https://twitter.com/fbravo_SFM) 
@@ -144,7 +144,7 @@ The content of this repository is under the [MIT license](./LICENSE).
 
 <img src="https://www.waldwachstum.wzw.tum.de/fileadmin/_processed_/a/b/csm_Biber_WunschNeu_53b390f147.jpg" alt="Description" width="50"> 
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0002-9700-8708) 
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-9700-8708) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Peter-Biber-3) 
 [<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/personen/peter-biber/)
 
@@ -152,14 +152,14 @@ The content of this repository is under the [MIT license](./LICENSE).
 
 <img src="https://i1.rgstatic.net/ii/profile.image/280045881970690-1443779549227_Q128/Enno-Uhl.jpg" alt="Description" width="50"> 
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0002-9700-8708) 
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-9700-8708) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Enno-Uhl) 
 
 #### Hans Pretzsch:
 
 <img src="https://www.professoren.tum.de/fileadmin/w00bgr/www/pics/PretzschHans.jpg" alt="Description" width="50"> 
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0227--506X-green?logo=orcid)](https://orcid.org/0000-0002-4958-1868) 
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-4958-1868) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/scientific-contributions/Hans-Pretzsch-38528857) 
 [<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/hans-pretzsch/)
 
