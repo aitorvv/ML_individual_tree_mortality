@@ -1,4 +1,4 @@
-cff-version: 1.1.1
+cff-version: 1.2.0
 message: "If you use this resources, please cite it as below."
 authors:
 - family-names: "Vázquez-Veloso"
@@ -20,7 +20,7 @@ authors:
   given-names: "Hans"
   orcid: "https://orcid.org/0000-0002-4958-1868"
 title: "Does Machine Learning outperform Logistic Regression in predicting individual tree mortality? - code and data"
-version: 1.1.1
-doi: https://zenodo.org/doi/10.5281/zenodo.12818894
-date-released: 2025-02-23
+version: 1.2.0
+doi: 
+date-released: 2025-03-04
 url: "https://github.com/aitorvv/ML_individual_tree_mortality"

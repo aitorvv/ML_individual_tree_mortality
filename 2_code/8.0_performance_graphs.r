@@ -19,10 +19,10 @@ setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/3_final/6_final_results/case_study_summary.RData')
+load('1_data/1_processed/6_final_results/case_study_summary.RData')
 
 # load functions to graph
-source('2_scripts/3_final/8.1_functions_performance_graphs.r')
+source('2_scripts/1_processed/8.1_functions_performance_graphs.r')
 
 # df to compare the best model among study cases
 all_cases_best_model_compilation <- tibble()
@@ -36,7 +36,7 @@ all_timers <- tibble()
 for(case in 1:length(case_study$name)){
   
   # Loading the workspace
-  load(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  load(paste('1_data/1_processed/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
   
   
   #### Models comparison function ####
@@ -303,4 +303,4 @@ for(case in 1:length(case_study$name)){
 
 #### Checkpoint ####
 
-save.image('1_data/3_final/6_final_results/best_models.RData')
+save.image('1_data/1_processed/6_final_results/best_models.RData')

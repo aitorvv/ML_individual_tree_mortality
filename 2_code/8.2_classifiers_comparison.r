@@ -22,7 +22,7 @@ setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/3_final/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
@@ -154,7 +154,7 @@ all_timers$case <- paste(all_timers$data, ' - ', all_timers$vars, sep = '')
 #### Analysis of dataset size ####
 
 # load graph functions
-source('2_scripts/3_final/8.3_graph_functions.r')
+source('2_scripts/1_processed/8.3_graph_functions.r')
 
 # just size data
 df_cs <- df[df$case_group == 'size', ]
@@ -937,10 +937,10 @@ time_bar_by_classifiers(df_graph, x_axis, y_axis, fill, g_title, g_x, g_y, g_leg
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/3_final/6_final_results/best_models-training_2_thinning.RData')
+load('1_data/1_processed/6_final_results/best_models-training_2_thinning.RData')
 
 # load graph functions
-source('2_scripts/3_final/8.3_graph_functions.r')
+source('2_scripts/1_processed/8.3_graph_functions.r')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, time_graph)

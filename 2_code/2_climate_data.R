@@ -177,16 +177,16 @@ clima_year <- plyr::ddply(clima, c('INVENTORY_ID', 'site', 'Longitude', 'Latitud
 #### Checkpoint ####
 
 # save data
-write.csv(clima, '1_data/tmp_DEN/2_clima/all_clima_worldclim_month.csv')
-write.csv(clima_year, '1_data/tmp_DEN/2_clima/all_clima_worldclim_year.csv')
+write.csv(clima, '1_data/1_processed/2_clima/all_clima_worldclim_month.csv')
+write.csv(clima_year, '1_data/1_processed/2_clima/all_clima_worldclim_year.csv')
 
 # load data
-clima <- read.csv('1_data/tmp_DEN/2_clima/all_clima_worldclim_month.csv')
+clima <- read.csv('1_data/1_processed/2_clima/all_clima_worldclim_month.csv')
 clima <- clima[-1]
 
-trees <- read.csv('1_data/tmp_DEN/1_neighborhood/trees_r33.csv', sep = ',')
-subplot_stats <- read.csv('1_data/tmp_DEN/1_neighborhood/subplot_stats_r33.csv', sep = ',')
-neighborhood_stats <- read.csv('1_data/tmp_DEN/1_neighborhood/neighborhood_stats_r33.csv', sep = ',')
+trees <- read.csv('1_data/1_processed/1_neighborhood/trees_r33.csv', sep = ',')
+subplot_stats <- read.csv('1_data/1_processed/1_neighborhood/subplot_stats_r33.csv', sep = ',')
+neighborhood_stats <- read.csv('1_data/1_processed/1_neighborhood/neighborhood_stats_r33.csv', sep = ',')
 
 trees <- trees[-1]
 subplot_stats <- subplot_stats[-1]
@@ -285,8 +285,8 @@ str(dat_clim_indices)
 str(dat_clim_indices_annual)
 
 # export data
-write.csv(dat_clim_indices, '1_data/tmp_DEN/2_clima/SPEI_M_monthly.csv', fileEncoding = 'UTF-8')
-write.csv(dat_clim_indices_annual, '1_data/tmp_DEN/2_clima/SPEI_M_annual.csv', fileEncoding = 'UTF-8')
+write.csv(dat_clim_indices, '1_data/1_processed/2_clima/SPEI_M_monthly.csv', fileEncoding = 'UTF-8')
+write.csv(dat_clim_indices_annual, '1_data/1_processed/2_clima/SPEI_M_annual.csv', fileEncoding = 'UTF-8')
 
 
 #### Grouping climate, tree and subplot data ####
@@ -299,4 +299,4 @@ final_df <- merge(final_df, neighborhood_stats_tmp, by = c('INVENTORY_ID', 'PLOT
 
 #### Export data to statistics ####
 
-write.csv(final_df, '1_data/tmp_DEN/2_clima/df_complete_r33.csv')
+write.csv(final_df, '1_data/1_processed/2_clima/df_complete_r33.csv')

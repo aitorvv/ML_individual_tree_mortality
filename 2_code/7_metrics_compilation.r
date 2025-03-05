@@ -58,7 +58,7 @@ case_study <- rbind(case_study_1, case_study_2, case_study_3)
 rm(df_size, thinning, var_size, case_study_1, case_study_2, case_study_3, df_len)
 
 # save case_study combinations
-save.image('1_data/3_final/6_final_results/case_study_summary.RData')
+save.image('1_data/1_processed/6_final_results/case_study_summary.RData')
 
 
 #### Functions needed ####
@@ -74,7 +74,7 @@ normalize <- function(x){
 # for(case in 1:length(case_study$name)){
 #   
 #   # Loading the workspace
-#   load(paste("1_data/3_final/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
+#   load(paste("1_data/1_processed/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
 #   
 #   
 #   #### Import results of ANN and continue analysis ####
@@ -123,7 +123,7 @@ normalize <- function(x){
 #     #test$dead <- ifelse(test$dead == 'yes', 1, 0)
 #     
 #     # get prediction data
-#     predicions_path <- paste('1_data/3_final/5_analysis/ann/preds/', case_study$name[case], '/', name, '.json', sep = '')
+#     predicions_path <- paste('1_data/1_processed/5_analysis/ann/preds/', case_study$name[case], '/', name, '.json', sep = '')
 #     pred_ann_model <- RJSONIO::fromJSON(predicions_path)
 #     
 #     # change format
@@ -215,13 +215,13 @@ normalize <- function(x){
 #   #### Import time records for ANN ####
 #   
 #   # read time preparing data (R)
-#   ann_time_r <- read.csv(paste('1_data/3_final/5_analysis/ann/timer/', case_study$name[case], '/ANN_1_timer.csv', sep = ''))
+#   ann_time_r <- read.csv(paste('1_data/1_processed/5_analysis/ann/timer/', case_study$name[case], '/ANN_1_timer.csv', sep = ''))
 #   
 #   # append to timer
 #   my_timer <- rbind(my_timer, ann_time_r)
 #   
 #   # read time of ANN performance (Python)
-#   ann_time_path_py <- paste('1_data/3_final/5_analysis/ann/timer/', case_study$name[case], '/ann_time_list.json', sep = '')
+#   ann_time_path_py <- paste('1_data/1_processed/5_analysis/ann/timer/', case_study$name[case], '/ann_time_list.json', sep = '')
 #   ann_time_python <- RJSONIO::fromJSON(ann_time_path_py)
 #   
 #   # model number
@@ -258,7 +258,7 @@ normalize <- function(x){
 #   #### Checkpoint ####
 #   
 #   # save metrics compilation
-#   save.image(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+#   save.image(paste('1_data/1_processed/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
 #   print(paste(case_study$name[case], ' saved succesfully!', sep = ''))
 #   
 #   # remove everything except needed variables
@@ -272,13 +272,13 @@ normalize <- function(x){
 for(case in 1:length(case_study$name)){
   
   # Loading the workspace
-  load(paste("1_data/3_final/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
+  load(paste("1_data/1_processed/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
   
   
   #### Checkpoint ####
   
   # save metrics compilation
-  save.image(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  save.image(paste('1_data/1_processed/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
   print(paste(case_study$name[case], ' saved succesfully!', sep = ''))
   
   # remove everything except needed variables
@@ -305,7 +305,7 @@ case_study$name <- paste('T', case_study$Var1, '_V', case_study$Var2, sep = '')
 rm(thinning, var_size)
 
 # save case_study combinations
-save.image('1_data/3_final/6_final_results/case_study_summary-training_2_thinning.RData')
+save.image('1_data/1_processed/6_final_results/case_study_summary-training_2_thinning.RData')
 
 
 
@@ -314,13 +314,13 @@ save.image('1_data/3_final/6_final_results/case_study_summary-training_2_thinnin
 for(case in 1:length(case_study$name)){
   
   # Loading the workspace
-  load(paste("1_data/3_final/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
+  load(paste("1_data/1_processed/5_analysis/", case_study$name[case], "/metrics.RData", sep = ''))
   
   
   #### Checkpoint ####
   
   # save metrics compilation
-  save.image(paste('1_data/3_final/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
+  save.image(paste('1_data/1_processed/6_final_results/', case_study$name[case], '/final_metrics.RData', sep = ''))
   print(paste(case_study$name[case], ' saved succesfully!', sep = ''))
   
   # remove everything except needed variables

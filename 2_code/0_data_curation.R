@@ -256,7 +256,7 @@ rm(df_full_height_2, yield_tables, yield_tables_empty)
 
 #### Export results ####
 
-write.csv(df, '1_data/tmp_DEN/0_initial_df_clean/initial_df_clean.csv', fileEncoding = 'UTF-8')
+write.csv(df, '1_data/1_processed/0_initial_df_clean/initial_df_clean.csv', fileEncoding = 'UTF-8')
 
 # make some sound to indicate the finish
 beep(sound = 8, expr = NULL)

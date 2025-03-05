@@ -19,10 +19,10 @@ library(tictoc) # check time for training each model
 setwd('ML_individual_tree_mortality/')
 
 # read combis data
-my_combis_easy <- readRDS('1_data/tmp_DEN/4_datasets/combis_easy.RDS')
-my_combis_medium <- readRDS('1_data/tmp_DEN/4_datasets/combis_medium.RDS')
-my_combis_hard <- readRDS('1_data/tmp_DEN/4_datasets/combis_hard.RDS')
-my_combis_extreme <- readRDS('1_data/tmp_DEN/4_datasets/combis_extreme.RDS')
+my_combis_easy <- readRDS('1_data/1_processed/4_datasets/combis_easy.RDS')
+my_combis_medium <- readRDS('1_data/1_processed/4_datasets/combis_medium.RDS')
+my_combis_hard <- readRDS('1_data/1_processed/4_datasets/combis_hard.RDS')
+my_combis_extreme <- readRDS('1_data/1_processed/4_datasets/combis_extreme.RDS')
 
 # extract the different number of combinations
 list_combis <- c(my_combis_easy, my_combis_medium, my_combis_hard, my_combis_extreme)
@@ -43,9 +43,9 @@ final_combis <- list_combis[combi_selection]
 rm(list = ls()[! ls() %in% c('final_combis')])
 
 # read df size data
-df_small <- read.csv('1_data/tmp_DEN/4_datasets/df_small_random_time.csv')
-df_medium <- read.csv('1_data/tmp_DEN/4_datasets/df_medium_random_time.csv')
-df_big <- read.csv('1_data/tmp_DEN/4_datasets/df_big_time.csv')
+df_small <- read.csv('1_data/1_processed/4_datasets/df_small_random_time.csv')
+df_medium <- read.csv('1_data/1_processed/4_datasets/df_medium_random_time.csv')
+df_big <- read.csv('1_data/1_processed/4_datasets/df_big_time.csv')
 df_list <- list(df_small, df_medium, df_big)
 
 # start timer
@@ -118,4 +118,4 @@ for(combi in final_combis){
 
 # remove all except timer and save it
 rm(list = ls()[! ls() %in% c('my_timer')])
-save.image(file = '1_data/tmp_DEN/6_final_results/timer/timer_comparison.RData')
+save.image(file = '1_data/1_processed/6_final_results/timer/timer_comparison.RData')

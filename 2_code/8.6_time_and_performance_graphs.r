@@ -19,7 +19,7 @@ setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/3_final/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)

@@ -15,7 +15,7 @@ library(beepr)
 
 setwd('ML_individual_tree_mortality/')
 
-df <- read.csv('1_data/tmp_DEN/0_initial_df_clean/initial_df_clean.csv', header = TRUE, sep = ',')
+df <- read.csv('1_data/1_processed/0_initial_df_clean/initial_df_clean.csv', header = TRUE, sep = ',')
 
 # Nr is the tree code
 # Artcode is species: 10 = Picea abies, 30 = Pinus sylvestris, 70 = Pseudotsuga menziessii
@@ -136,9 +136,9 @@ contrasts(trees$thinned)
 #### Checkpoint ####
 
 # save data
-write.csv(trees, paste('1_data/tmp_DEN/1_neighborhood/trees_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
-write.csv(subplot_stats, paste('1_data/tmp_DEN/1_neighborhood/subplot_stats_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
-write.csv(neighborhood_stats, paste('1_data/tmp_DEN/1_neighborhood/neighborhood_stats_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
+write.csv(trees, paste('1_data/1_processed/1_neighborhood/trees_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
+write.csv(subplot_stats, paste('1_data/1_processed/1_neighborhood/subplot_stats_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
+write.csv(neighborhood_stats, paste('1_data/1_processed/1_neighborhood/neighborhood_stats_r', substring(radius_height, 3, 4), '.csv', sep = ''), fileEncoding = 'UTF-8')
 
 # make some sound to indicate the finish
 beep(sound = 8, expr = NULL)

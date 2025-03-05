@@ -44,9 +44,9 @@ setwd('ML_individual_tree_mortality/')
 
 # original data
 if(var_size %in% c('easy', 'medium', 'hard', 'extreme')){  # in that cases, the first record of each plot is not included
-  df_original <- read.csv(paste('1_data/tmp_DEN/4_datasets/df_', df_size, '_time.csv', sep = ''))
+  df_original <- read.csv(paste('1_data/1_processed/4_datasets/df_', df_size, '_time.csv', sep = ''))
 } else {
-  df_original <- read.csv(paste('1_data/tmp_DEN/4_datasets/df_', df_size, '.csv', sep = ''))
+  df_original <- read.csv(paste('1_data/1_processed/4_datasets/df_', df_size, '.csv', sep = ''))
 }
 
 # timer
@@ -76,7 +76,7 @@ set.seed(33)
 #### Variable combinations ####
 
 # load variable combinations
-my_combis <- readRDS(paste('1_data/tmp_DEN/4_datasets/combis_', var_size, '.RDS', sep = ''))
+my_combis <- readRDS(paste('1_data/1_processed/4_datasets/combis_', var_size, '.RDS', sep = ''))
 
 print('#-----------------------#')
 print('Data preprocessing ready!')
@@ -231,12 +231,12 @@ print('SVM analysis have finished successfully.')
 
 # save all my objects 
 save(lr_model, dt_model, rf_model, nb_model, svm_model, knn_model, file = 
-     paste('1_data/tmp_DEN/5_analysis/D', df_size, '_V', var_size, '/models.RData', sep = ''))
+     paste('1_data/1_processed/5_analysis/D', df_size, '_V', var_size, '/models.RData', sep = ''))
 print('Full workspace saved')
 
 # delete models
 rm(lr_model, dt_model, rf_model, nb_model, svm_model, knn_model, normalize)
 
 # save results without models
-save.image(file =  paste('1_data/tmp_DEN/5_analysis/D', df_size, '_V', var_size, '/metrics.RData', sep = ''))
+save.image(file =  paste('1_data/1_processed/5_analysis/D', df_size, '_V', var_size, '/metrics.RData', sep = ''))
 print('Light workspace saved')

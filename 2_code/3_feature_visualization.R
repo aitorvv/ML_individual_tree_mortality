@@ -26,7 +26,7 @@ library(dlookr)
 
 setwd('ML_individual_tree_mortality/')
 
-df_original <- read.csv('1_data/tmp_DEN/2_clima/df_complete_r33.csv')
+df_original <- read.csv('1_data/1_processed/2_clima/df_complete_r33.csv')
 
 
 #### Features correlation exploration: tree size ####

@@ -18,10 +18,10 @@ setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2_Vitality/')
 #### Load general information: control thinning ####
 
 # load case metrics
-load('1_data/3_final/7_applications/case_metrics_control.RData')
+load('1_data/1_processed/7_applications/case_metrics_control.RData')
 
 # load all metrics
-load('1_data/3_final/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph, all_timers)
@@ -53,7 +53,7 @@ all_thinning_metrics <- metrics
 #### Graph comparison ####
 
 # load graph functions
-source('2_scripts/3_final/8.3_graph_functions.r')
+source('2_scripts/1_processed/8.3_graph_functions.r')
 
 # reorder the levels of the 'data' variable based on your preferred order
 metrics$data_used <- ifelse(metrics$data_used == 'Tcontrol_Vhard', 'control', ifelse(metrics$data_used == 'Tbelow_Vhard', 'below', 'above'))
@@ -96,7 +96,7 @@ pl_control_point <- pointline_by_cs_just_point(df_graph, x_axis = factor(metrics
 #### Load general information: from above thinning ####
 
 # load case metrics
-load('1_data/3_final/7_applications/case_metrics_above.RData')
+load('1_data/1_processed/7_applications/case_metrics_above.RData')
 case_metrics$data_used <- ifelse(case_metrics$data_used %in% 'control_Vhard', 'Tcontrol_Vhard', case_metrics$data_used)
 
 #### Select metrics from original cases ####
@@ -165,7 +165,7 @@ pl_above_point <- pointline_by_cs_just_point(df_graph, x_axis = factor(metrics$d
 #### Load general information: from below thinning ####
 
 # load case metrics
-load('1_data/3_final/7_applications/case_metrics_below.RData')
+load('1_data/1_processed/7_applications/case_metrics_below.RData')
 case_metrics$data_used <- ifelse(case_metrics$data_used %in% 'control_Vhard', 'Tcontrol_Vhard', case_metrics$data_used)
 
 #### Select metrics from original cases ####

@@ -18,7 +18,7 @@ setwd('ML_individual_tree_mortality/')
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/1_original_df/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
@@ -48,11 +48,11 @@ rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
 #    lr_m, dt_m, rf_m, nb_m, knn_m, svm_m)
 
 # already selected models
-models_list <- readRDS('1_data/1_original_df/7_applications/control_models.rds')
-my_models <- readRDS('1_data/1_original_df/7_applications/control_models_summary.rds')
+models_list <- readRDS('1_data/1_processed/7_applications/control_models.rds')
+my_models <- readRDS('1_data/1_processed/7_applications/control_models_summary.rds')
 
 # read combis 
-my_combis <- readRDS('1_data/tmp_DEN/4_datasets/combis_hard.RDS')
+my_combis <- readRDS('1_data/1_processed/4_datasets/combis_hard.RDS')
 
 
 #### Unthinned model and thinned data: from above data selection ####
@@ -70,7 +70,7 @@ model_used <- 'Tcontrol_Vhard'
 data_used <- 'Tabove_Vhard'
 
 # read data
-df_study <- read.csv('1_data/tmp_DEN/4_datasets/df_above_time.csv')
+df_study <- read.csv('1_data/1_processed/4_datasets/df_above_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())
@@ -310,7 +310,7 @@ for(k in 2:length(names_methods)-1){
 rm(list=setdiff(ls(), "case_metrics"))
 
 # save metrics
-save.image('1_data/1_original_df/7_applications/case_metrics_control.RData')
+save.image('1_data/1_processed/7_applications/case_metrics_control.RData')
 
 # remove all
 rm(list=ls())
@@ -322,7 +322,7 @@ rm(list=ls())
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/1_original_df/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
@@ -352,11 +352,11 @@ rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
 #    lr_m, dt_m, rf_m, nb_m, knn_m, svm_m)
 
 # already selected models
-models_list <- readRDS('1_data/1_original_df/7_applications/above_models.rds')
-my_models <- readRDS('1_data/1_original_df/7_applications/above_models_summary.rds')
+models_list <- readRDS('1_data/1_processed/7_applications/above_models.rds')
+my_models <- readRDS('1_data/1_processed/7_applications/above_models_summary.rds')
 
 # read combis 
-my_combis <- readRDS('1_data/tmp_DEN/4_datasets/combis_hard.RDS')
+my_combis <- readRDS('1_data/1_processed/4_datasets/combis_hard.RDS')
 
 
 #### Tabove model and other data: control data selection ####
@@ -374,7 +374,7 @@ model_used <- 'Tabove_Vhard'
 data_used <- 'Tcontrol_Vhard'
 
 # read data
-df_study <- read.csv('1_data/tmp_DEN/4_datasets/df_control_time.csv')
+df_study <- read.csv('1_data/1_processed/4_datasets/df_control_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())
@@ -494,7 +494,7 @@ for(k in 2:length(names_methods)-1){
 data_used <- 'Tbelow_Vhard'
 
 # read data
-df_study <- read.csv('1_data/tmp_DEN/4_datasets/df_above_time.csv')
+df_study <- read.csv('1_data/1_processed/4_datasets/df_above_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())
@@ -614,7 +614,7 @@ for(k in 2:length(names_methods)-1){
 rm(list=setdiff(ls(), "case_metrics"))
 
 # save metrics
-save.image('1_data/1_original_df/7_applications/case_metrics_above.RData')
+save.image('1_data/1_processed/7_applications/case_metrics_above.RData')
 
 # remove all
 rm(list=ls())
@@ -626,7 +626,7 @@ rm(list=ls())
 #### Load general information ####
 
 # load the variables groups from the previous code
-load('1_data/1_original_df/6_final_results/best_models.RData')
+load('1_data/1_processed/6_final_results/best_models.RData')
 
 # remove functions
 rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
@@ -656,11 +656,11 @@ rm(find_best_model, graph_best_model, metric_graph, normalize, time_graph)
 #    lr_m, dt_m, rf_m, nb_m, knn_m, svm_m)
 
 # already selected models
-models_list <- readRDS('1_data/1_original_df/7_applications/below_models.rds')
-my_models <- readRDS('1_data/1_original_df/7_applications/below_models_summary.rds')
+models_list <- readRDS('1_data/1_processed/7_applications/below_models.rds')
+my_models <- readRDS('1_data/1_processed/7_applications/below_models_summary.rds')
 
 # read combis 
-my_combis <- readRDS('1_data/tmp_DEN/4_datasets/combis_hard.RDS')
+my_combis <- readRDS('1_data/1_processed/4_datasets/combis_hard.RDS')
 
 
 #### Tbelow model and other data: control data selection ####
@@ -678,7 +678,7 @@ model_used <- 'Tbelow_Vhard'
 data_used <- 'Tcontrol_Vhard'
 
 # read data
-df_study <- read.csv('1_data/tmp_DEN/4_datasets/df_control_time.csv')
+df_study <- read.csv('1_data/1_processed/4_datasets/df_control_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())
@@ -798,7 +798,7 @@ for(k in 2:length(names_methods)-1){
 data_used <- 'Tabove_Vhard'
 
 # read data
-df_study <- read.csv('1_data/tmp_DEN/4_datasets/df_above_time.csv')
+df_study <- read.csv('1_data/1_processed/4_datasets/df_above_time.csv')
 
 # reorder variables to have dead always as the first one (important later)
 df_study <- dplyr::select(df_study, dead, everything())
@@ -918,7 +918,7 @@ for(k in 2:length(names_methods)-1){
 rm(list=setdiff(ls(), "case_metrics"))
 
 # save metrics
-save.image('1_data/1_original_df/7_applications/case_metrics_above.RData')
+save.image('1_data/1_processed/7_applications/case_metrics_above.RData')
 
 # remove all
 rm(list=ls())

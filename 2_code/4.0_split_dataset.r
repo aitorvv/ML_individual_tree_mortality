@@ -8,7 +8,7 @@
 
 setwd('ML_individual_tree_mortality/')
 
-df_original <- read.csv('1_data/tmp_DEN/2_clima/df_complete_r33.csv')
+df_original <- read.csv('1_data/1_processed/2_clima/df_complete_r33.csv')
 df_original <- df_original[-1] # clean X variable created when writting a csv
 
 
@@ -249,38 +249,38 @@ df_7to9_time <- tmp_df_7to9_time
 #### Save results ####
 
 # all
-save.image('1_data/tmp_DEN/4_datasets/df_splitted.RData')
+save.image('1_data/1_processed/4_datasets/df_splitted.RData')
 
 # size
-write.csv(df_small, '1_data/tmp_DEN/4_datasets/df_small.csv', row.names = FALSE)
-write.csv(df_medium, '1_data/tmp_DEN/4_datasets/df_medium.csv', row.names = FALSE)
-write.csv(df_big, '1_data/tmp_DEN/4_datasets/df_big.csv', row.names = FALSE)
+write.csv(df_small, '1_data/1_processed/4_datasets/df_small.csv', row.names = FALSE)
+write.csv(df_medium, '1_data/1_processed/4_datasets/df_medium.csv', row.names = FALSE)
+write.csv(df_big, '1_data/1_processed/4_datasets/df_big.csv', row.names = FALSE)
 
 # size without initial year
-write.csv(df_small_time, '1_data/tmp_DEN/4_datasets/df_small_time.csv', row.names = FALSE)
-write.csv(df_small_random, '1_data/tmp_DEN/4_datasets/df_small_random_time.csv', row.names = FALSE)
-write.csv(df_medium_time, '1_data/tmp_DEN/4_datasets/df_medium_time.csv', row.names = FALSE)
-write.csv(df_medium_random, '1_data/tmp_DEN/4_datasets/df_medium_random_time.csv', row.names = FALSE)
-write.csv(df_big_time, '1_data/tmp_DEN/4_datasets/df_big_time.csv', row.names = FALSE)
+write.csv(df_small_time, '1_data/1_processed/4_datasets/df_small_time.csv', row.names = FALSE)
+write.csv(df_small_random, '1_data/1_processed/4_datasets/df_small_random_time.csv', row.names = FALSE)
+write.csv(df_medium_time, '1_data/1_processed/4_datasets/df_medium_time.csv', row.names = FALSE)
+write.csv(df_medium_random, '1_data/1_processed/4_datasets/df_medium_random_time.csv', row.names = FALSE)
+write.csv(df_big_time, '1_data/1_processed/4_datasets/df_big_time.csv', row.names = FALSE)
 
 # thinning
-write.csv(df_above, '1_data/tmp_DEN/4_datasets/df_above.csv', row.names = FALSE)
-write.csv(df_below, '1_data/tmp_DEN/4_datasets/df_below.csv', row.names = FALSE)
-write.csv(df_control, '1_data/tmp_DEN/4_datasets/df_control.csv', row.names = FALSE)
+write.csv(df_above, '1_data/1_processed/4_datasets/df_above.csv', row.names = FALSE)
+write.csv(df_below, '1_data/1_processed/4_datasets/df_below.csv', row.names = FALSE)
+write.csv(df_control, '1_data/1_processed/4_datasets/df_control.csv', row.names = FALSE)
 
 # thinning without initial year
-write.csv(df_above_time, '1_data/tmp_DEN/4_datasets/df_above_time.csv', row.names = FALSE)
-write.csv(df_below_time, '1_data/tmp_DEN/4_datasets/df_below_time.csv', row.names = FALSE)
-write.csv(df_control_time, '1_data/tmp_DEN/4_datasets/df_control_time.csv', row.names = FALSE)
+write.csv(df_above_time, '1_data/1_processed/4_datasets/df_above_time.csv', row.names = FALSE)
+write.csv(df_below_time, '1_data/1_processed/4_datasets/df_below_time.csv', row.names = FALSE)
+write.csv(df_control_time, '1_data/1_processed/4_datasets/df_control_time.csv', row.names = FALSE)
 
 # records
-write.csv(df_3to5, '1_data/tmp_DEN/4_datasets/df_3to5.csv', row.names = FALSE)
-write.csv(df_5to6, '1_data/tmp_DEN/4_datasets/df_5to6.csv', row.names = FALSE)
-write.csv(df_6to7, '1_data/tmp_DEN/4_datasets/df_6to7.csv', row.names = FALSE)
-write.csv(df_7to9, '1_data/tmp_DEN/4_datasets/df_7to9.csv', row.names = FALSE)
+write.csv(df_3to5, '1_data/1_processed/4_datasets/df_3to5.csv', row.names = FALSE)
+write.csv(df_5to6, '1_data/1_processed/4_datasets/df_5to6.csv', row.names = FALSE)
+write.csv(df_6to7, '1_data/1_processed/4_datasets/df_6to7.csv', row.names = FALSE)
+write.csv(df_7to9, '1_data/1_processed/4_datasets/df_7to9.csv', row.names = FALSE)
 
 # records without initial year
-write.csv(df_3to5_time, '1_data/tmp_DEN/4_datasets/df_3to5_time.csv', row.names = FALSE)
-write.csv(df_5to6_time, '1_data/tmp_DEN/4_datasets/df_5to6_time.csv', row.names = FALSE)
-write.csv(df_6to7_time, '1_data/tmp_DEN/4_datasets/df_6to7_time.csv', row.names = FALSE)
-write.csv(df_7to9_time, '1_data/tmp_DEN/4_datasets/df_7to9_time.csv', row.names = FALSE)
+write.csv(df_3to5_time, '1_data/1_processed/4_datasets/df_3to5_time.csv', row.names = FALSE)
+write.csv(df_5to6_time, '1_data/1_processed/4_datasets/df_5to6_time.csv', row.names = FALSE)
+write.csv(df_6to7_time, '1_data/1_processed/4_datasets/df_6to7_time.csv', row.names = FALSE)
+write.csv(df_7to9_time, '1_data/1_processed/4_datasets/df_7to9_time.csv', row.names = FALSE)
