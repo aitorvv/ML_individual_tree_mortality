@@ -19,7 +19,7 @@ authors:
 - family-names: "Pretzsch"
   given-names: "Hans"
   orcid: "https://orcid.org/0000-0002-4958-1868"
-title: "Does Machine Learning outperform Logistic Regression in predicting individual tree mortality? - code and data"
+title: 'Code, data and resources for "Does Machine Learning outperform Logistic Regression in predicting individual tree mortality?"'
 version: 1.2.0
 doi: https://doi.org/10.5281/zenodo.14970488
 date-released: 2025-03-04
